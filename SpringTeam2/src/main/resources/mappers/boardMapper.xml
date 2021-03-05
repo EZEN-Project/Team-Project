@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.board">
+	<delete id="deleteFilesByBno">
+		delete from attach where bno = #{bno}
+	</delete>
+	<delete id="deleteFile">
+		delete from attach where fullName = #{fileName}
+	</delete>
+	<insert id="addAttach">
+		INSERT INTO attach (id, fullName, bno) 
+		VALUES 
+		((SELECT NVL2(MAX(id), MAX(id)+1, 1) FROM attach)
+		 , #{fullName}, #{bno})
+	</insert>
+	<select id="getAttaches" resultType="string">
+      SELECT fullName FROM attach WHERE bno = #{bno} order by regdate ASC
+   </select>
+
+	<update id="updateReplyCntMinus">
+		UPDATE board SET replyCnt = replyCnt - 1 WHERE 	bno = #{bno}
+	</update>
+
+	<update id="updateReplyCnt">
+		UPDATE board SET replyCnt = replyCnt + 1 WHERE 	bno = #{bno}
+	</update>
+
+
+	<update id="updateViewCnt">
+		UPDATE board SET viewCnt = viewCnt + 1 WHERE bno = #{bno}
+	</update>
+
+	
+	<delete id="delete">
+		DELETE FROM board WHERE bno = #{bno}
+	</delete>
+	
+	
+	<update id="update">
+		UPDATE board SET 
+		writer = #{writer}, title = #{title}, content = #{content},
+		updateDate = SYSDATE WHERE bno = #{bno}
+	</update>
+
+	<select id="updateUI" resultType="kr.co.domain.BoardVO">
+		SELECT * FROM board WHERE bno = #{bno}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO board (bno, title, content, writer)
+		VALUES ((SELECT NVL2(MAX(bno), MAX(bno)+1, 1) FROM board), 
+        #{title}, 
+        #{content}, 
+        #{writer})
+        <selectKey order="AFTER" keyProperty="bno" resultType="Integer">
+        	SELECT MAX(bno) FROM board
+        </selectKey>
+	</insert>
+
+	<select id="read" resultType="kr.co.domain.BoardVO">
+		SELECT * FROM board WHERE bno = #{bno}
+	</select>
+	
+	<select id="list" resultType="kr.co.domain.BoardVO">
+		SELECT * FROM board ORDER BY bno DESC
+	</select>
+	
+	<select id="getAmount" resultType="Integer">
+		SELECT COUNT(bno) FROM board
+	</select>
+	
+	
+	<select id="list2" resultType="kr.co.domain.BoardVO">
+		<![CDATA[
+		SELECT * FROM 
+		(SELECT ROWNUM rnum, bno, title, 
+				content, writer, regdate, 
+				updatedate, viewcnt 
+				FROM (SELECT * FROM board ORDER BY bno DESC)) 
+				WHERE 	rnum BETWEEN #{startNum} AND #{endNum}
+		]]>
+	</select>
+</mapper>
