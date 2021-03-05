@@ -18,8 +18,8 @@
    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
       <property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
       <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
-      <property name="username" value="project"></property>
-      <property name="password" value="project"></property>
+      <property name="username" value="projec"></property>
+      <property name="password" value="projec"></property>
    </bean>
    
    <!-- mybatis-spring 연결 -->
