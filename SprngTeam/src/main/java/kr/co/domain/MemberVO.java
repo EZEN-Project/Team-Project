@@ -15,7 +15,11 @@ public class MemberVO implements Serializable{
 	private String email;
 	private String pw;
 	private String name;
+<<<<<<< HEAD
 	private int phone;
+=======
+	private String phone;
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 	private String address;
 	private Date regdate;
 	private Date updatedate;
@@ -28,7 +32,11 @@ public class MemberVO implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+<<<<<<< HEAD
 	public MemberVO(int mnum, String id, String email, String pw, String name, int phone, String address, Date regdate,
+=======
+	public MemberVO(int mnum, String id, String email, String pw, String name, String phone, String address, Date regdate,
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 			Date updatedate, Date birth, int point, int mtype, String memo) {
 		super();
 		this.mnum = mnum;
@@ -75,10 +83,17 @@ public class MemberVO implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+<<<<<<< HEAD
 	public int getPhone() {
 		return phone;
 	}
 	public void setPhone(int phone) {
+=======
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 		this.phone = phone;
 	}
 	public String getAddress() {

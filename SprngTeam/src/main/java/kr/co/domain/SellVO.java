@@ -13,7 +13,11 @@ public class SellVO implements Serializable{
 	private int sellnum;
 	private	int goodsnum;
 	private int buynum;
+<<<<<<< HEAD
 	private Date selldate;
+=======
+	private Date sellDate;
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 
 	
 	public SellVO() {
@@ -26,7 +30,11 @@ public class SellVO implements Serializable{
 		this.sellnum = sellnum;
 		this.goodsnum = goodsnum;
 		this.buynum = buynum;
+<<<<<<< HEAD
 		this.selldate = sellDate;
+=======
+		this.sellDate = sellDate;
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 	}
 
 
@@ -61,12 +69,20 @@ public class SellVO implements Serializable{
 
 
 	public Date getSellDate() {
+<<<<<<< HEAD
 		return selldate;
+=======
+		return sellDate;
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 	}
 
 
 	public void setSellDate(Date sellDate) {
+<<<<<<< HEAD
 		this.selldate = sellDate;
+=======
+		this.sellDate = sellDate;
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 	}
 
 
@@ -101,7 +117,11 @@ public class SellVO implements Serializable{
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "SellVO [sellnum=" + sellnum + ", goodsnum=" + goodsnum + ", buynum=" + buynum + ", selldate=" + selldate
+=======
+		return "SellVO [sellnum=" + sellnum + ", goodsnum=" + goodsnum + ", buynum=" + buynum + ", sellDate=" + sellDate
+>>>>>>> 6b2f38d731cbc92b60770637e9cd45f8e0658536
 				+ "]";
 	}
 	
