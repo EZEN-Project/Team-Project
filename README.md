@@ -10,7 +10,7 @@
 - 진군: https://github.com/EZEN-Project/jingoon
 - 도현: https://github.com/EZEN-Project/dohyun
 - 시원:
-- 진택:
+- 진택: https://github.com/EZEN-Project/jintek
 
 [ 팀 회의 ]
 
