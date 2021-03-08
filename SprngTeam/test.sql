@@ -21,6 +21,7 @@ point number(10) DEFAULT 0,
 type number(10) not null,
 memo varchar2(100)
 )
+select * from member
 drop table member
 create table board(
 bnum number(6) primary key,
@@ -29,8 +30,11 @@ writer varchar2(300) not null,
 content varchar2(300) not null,
 veiwcnt number(6) default 0,
 bcount number(6) default 1,
+regdate DATE DEFAULT SYSDATE,
+updatedate DATE DEFAULT SYSDATE,
 goods varchar2(300) not null
 )
+drop table board
 create table sell(
 snum number(6) primary key,
 gnum number(6),
