@@ -51,6 +51,15 @@
 - 장바구니의 목록을 버튼 배지로 표현
 ![화면 캡처 2021-03-08 175755](https://user-images.githubusercontent.com/72857217/110302365-82748700-803c-11eb-8103-ebc8cb54bc6c.png)
 
+ <진택 2021.03.08>
+- MemberMapper .interface  
+- MemberDAO .class  
+- MemberService .class 
+- MemberController .class
+- 회원가입 home.jsp
+- login창을 보여주는 login.jsp 
+- login후에 등장하는 main.jsp
+
 
 ----
 
