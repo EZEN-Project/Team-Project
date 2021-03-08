@@ -40,14 +40,6 @@ public class BoardServiceImpl implements BoardService{
 	public void insert(BoardVO vo) {
 		boardDao.insert(vo);
 		
-		String[] files = vo.getFiles();
-		if(files == null) {
-			return;
-		}
-		
-		for(String fullName : files) {
-			boardDao.addAttach(fullName, vo.getBno());
-		}
 		
 	}
 

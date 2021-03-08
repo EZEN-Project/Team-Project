@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 등록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -45,29 +45,34 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h1 class="jumbotron">글쓰기 회면</h1>
+			<h1 class="jumbotron">상품등록</h1>
 		</div><!--class="row"  -->
 		
 		<div class="row">
 			<form action="/board/insert" method="post">
 				<div class="form-group">
-					<label for="title">제목</label>
+					<label for="title">제목(상품이름으로하면좋음)</label>
 					<input class="form-control" id="title" name="title">
 				</div>
 				
 				<div class="form-group">
-					<label for="writer">작성자</label>
-					<input class="form-control" id="writer" name="writer" value="${login.userId}" readonly="readonly">
+					<label for="title">상품 이름</label>
+					<input class="form-control" id="goods" name="goods">
 				</div>
 				
 				<div class="form-group">
-					<label for="content">내용</label>
+					<label for="writer">작성자</label>
+					<input class="form-control" id="writer" name="writer" value="${login.id}" readonly="readonly">
+				</div>
+				
+				<div class="form-group">
+					<label for="content">상세설명</label>
 					<textarea rows="5"  class="form-control" id="content" name="content"></textarea>
 				</div>
 			</form>
 			
 			<div class="form-group">
-				<label>업로드할 파일을 드랍하세요</label>
+				<label>첨부사진</label>
 				<div class="fileDrop">
 				
 				</div>

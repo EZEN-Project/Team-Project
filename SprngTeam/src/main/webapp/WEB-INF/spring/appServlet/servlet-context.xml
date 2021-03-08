@@ -37,29 +37,28 @@
 	<beans:bean id="authinterceptor" class="kr.co.interceptor.AuthInterceptor"></beans:bean>
 	 -->
 	<!-- 인터셉터 객체의 사용, 사용객체id(ref)- 객체사용위치(mapping) -->
-	<interceptors>
+<!-- 	<interceptors>
 		<interceptor>
-			<mapping path="/test"/>		<!-- 인터셉터 사용 위치(MVC handler의 uri(value)  -->
+			<mapping path="/test"/>		인터셉터 사용 위치(MVC handler의 uri(value) 
 			<beans:ref bean="myinterceptor"/>
-		</interceptor>
+		</interceptor> -->
 		<!-- 로그인  -->
-		<interceptor>
+<!-- 		<interceptor>
 			<mapping path="/member/loginPost"/>		
 			<beans:ref bean="logininterceptor"/>
-		</interceptor>
+		</interceptor> -->
 		<!-- 로그인인증 -->
-		<interceptor>
+		<!-- <interceptor>
 			<mapping path="/board/insert"/>
 			<mapping path="/board/update"/>
 			<mapping path="/board/delete"/>
 			<beans:ref bean="authinterceptor"/>
-		</interceptor>
+		</interceptor> -->
 		
-	</interceptors>
+<!-- 	</interceptors> -->
 
 	
-	<context:component-scan base-package="kr.co.naver" />
-	<context:component-scan base-package="kr.co.ezen" />
+
 	<context:component-scan base-package="kr.co.controller" />
 	
 </beans:beans>
