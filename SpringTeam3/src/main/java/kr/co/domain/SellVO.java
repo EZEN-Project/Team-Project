@@ -3,12 +3,14 @@ package kr.co.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SellVO implements Serializable {
+
+public class SellVO implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	/*
 	create table sell(
 	sellNum number primary key,
@@ -29,6 +31,7 @@ public class SellVO implements Serializable {
 	private int groupNum;
 	private Date sellDate;
 	private String img;
+
 	
 	public SellVO() {
 		// TODO Auto-generated constructor stub
@@ -116,13 +119,16 @@ public class SellVO implements Serializable {
 		this.groupNum = groupNum;
 	}
 
+
 	public Date getSellDate() {
 		return sellDate;
 	}
 
+
 	public void setSellDate(Date sellDate) {
 		this.sellDate = sellDate;
 	}
+
 
 	public String getImg() {
 		return img;
@@ -132,9 +138,11 @@ public class SellVO implements Serializable {
 		this.img = img;
 	}
 
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -158,13 +166,4 @@ public class SellVO implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "SellVO [sellNum=" + sellNum + ", buyNum=" + buyNum + ", sellboardNo=" + sellboardNo + ", amount="
-				+ amount + ", aPrice=" + aPrice + ", groupNum=" + groupNum + ", sellDate=" + sellDate + ", img=" + img
-				+ "]";
-	}
-	
-	
-	
 }
