@@ -18,23 +18,34 @@ regdate DATE DEFAULT SYSDATE,
 updatedate DATE DEFAULT SYSDATE,
 birth date not null,
 point number(10) DEFAULT 0,
-type number(10) not null,
+mtype number(10) not null,
 memo varchar2(100)
 )
-drop table member
-create table board(
+create table qboard(
+bnum number(6) primary key,
+title varchar2(300) not null,
+writer varchar2(300) not null,
+content varchar2(300) not null,
+veiwcnt number(6) default 0,
+regdate DATE DEFAULT SYSDATE,
+updatedate DATE DEFAULT SYSDATE
+)
+create table sellboard(
 bnum number(6) primary key,
 title varchar2(300) not null,
 writer varchar2(300) not null,
 content varchar2(300) not null,
 veiwcnt number(6) default 0,
 bcount number(6) default 1,
-goods varchar2(300) not null
+goods varchar2(300) not null,
+regdate DATE DEFAULT SYSDATE,
+updatedate DATE DEFAULT SYSDATE
 )
 create table sell(
-snum number(6) primary key,
-gnum number(6),
-bmnum number(6),
-sellDate date default sysdate,
-constraint fk_sell_bmnum foreign key(bmnum) references goods(gnum)
+sellnum number(6) primary key,
+goodsnum number(6),
+buynum number(6),
+sellDate date default sysdate
 )
+select *from sell
+drop table goods

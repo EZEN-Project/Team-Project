@@ -5,81 +5,43 @@ import java.util.Date;
 
 public class BoardVO implements Serializable{
 	
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int bno;
 	private String title;
-	private String content;
 	private String writer;
-	private Date regDate;
-	private Date updateDate;
+	private String content;
 	private int viewCnt;
-	private int replyCnt;
-	
+	private int bcount;
+	private String goods;
 	private String[] files;
+	private Date regdate;
+	private Date updateDate;
+	private int replyCnt;
 	
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardVO(int bno, String title, String content, String writer, Date regDate, Date updateDate, int viewCnt) {
+	public BoardVO(int bno, String title, String writer, String content, int viewCnt, int bcount, String goods,
+			String[] files, Date regdate, Date updatedate,int replyCnt ) {
 		super();
 		this.bno = bno;
 		this.title = title;
-		this.content = content;
 		this.writer = writer;
-		this.regDate = regDate;
-		this.updateDate = updateDate;
-		this.viewCnt = viewCnt;
-	}
-	
-	
-	
-
-	public BoardVO(int bno, String title, String content, String writer, Date regDate, Date updateDate, int viewCnt,
-			int replyCnt) {
-		super();
-		this.bno = bno;
-		this.title = title;
 		this.content = content;
-		this.writer = writer;
-		this.regDate = regDate;
-		this.updateDate = updateDate;
 		this.viewCnt = viewCnt;
+		this.bcount = bcount;
+		this.goods = goods;
+		this.files = files;
+		this.regdate = regdate;
+		this.updateDate = updatedate;
 		this.replyCnt = replyCnt;
 	}
 	
 	
-	
-	
-
-	public BoardVO(int bno, String title, String content, String writer, Date regDate, Date updateDate, int viewCnt,
-			int replyCnt, String[] files) {
-		super();
-		this.bno = bno;
-		this.title = title;
-		this.content = content;
-		this.writer = writer;
-		this.regDate = regDate;
-		this.updateDate = updateDate;
-		this.viewCnt = viewCnt;
-		this.replyCnt = replyCnt;
-		this.files = files;
-	}
-	
-	
-	
-
-	public String[] getFiles() {
-		return files;
-	}
-
-	public void setFiles(String[] files) {
-		this.files = files;
-	}
 
 	public int getReplyCnt() {
 		return replyCnt;
@@ -105,14 +67,6 @@ public class BoardVO implements Serializable{
 		this.title = title;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getWriter() {
 		return writer;
 	}
@@ -121,20 +75,12 @@ public class BoardVO implements Serializable{
 		this.writer = writer;
 	}
 
-	public Date getRegDate() {
-		return regDate;
+	public String getContent() {
+		return content;
 	}
 
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public int getViewCnt() {
@@ -145,32 +91,76 @@ public class BoardVO implements Serializable{
 		this.viewCnt = viewCnt;
 	}
 
+	public int getBcount() {
+		return bcount;
+	}
+
+	public void setBcount(int bcount) {
+		this.bcount = bcount;
+	}
+
+	public String getGoods() {
+		return goods;
+	}
+
+	public void setGoods(String goods) {
+		this.goods = goods;
+	}
+
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updatedate) {
+		this.updateDate = updatedate;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + bno;
+		return result;
+	}
 
-	   @Override
-	   public boolean equals(Object obj) {
-	      if (this == obj)
-	         return true;
-	      if (obj == null)
-	         return false;
-	      if (getClass() != obj.getClass())
-	         return false;
-	      BoardVO other = (BoardVO) obj;
-	      if (bno != other.bno)
-	         return false;
-	      return true;
-	   }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BoardVO other = (BoardVO) obj;
+		if (bno != other.bno)
+			return false;
+		return true;
+	}
 
-	
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", title=" + title + ", writer=" + writer + ", updateDate=" + updateDate
-				+ ", viewCnt=" + viewCnt + "]";
+		return "BoardVO [title=" + title + ", writer=" + writer + ", content=" + content + "]";
 	}
-	
 	
 	
 	

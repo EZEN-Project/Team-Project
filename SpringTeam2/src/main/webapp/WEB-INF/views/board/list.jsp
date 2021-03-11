@@ -28,7 +28,7 @@
 			<a href="/member/login">로그인</a>
 			</c:when>
 			<c:otherwise>
-			<span>${login.userId}님, 환영합니다.</span><a href="/member/logout">로그아웃</a>
+			<span>${login.id}님, 환영합니다.</span><a href="/member/logout">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
 			
