@@ -32,7 +32,6 @@
   	</beans:bean>
 	
   	<!-- 인터셉터 객체(컨트롤러의 핸들러 실행 전후에 실행  -->
-<<<<<<< HEAD
 
   	<beans:bean id="logininterceptor" class="kr.co.interceptor.LoginInterceptor"></beans:bean>
 	<beans:bean id="authinterceptor" class="kr.co.interceptor.AuthInterceptor"></beans:bean>
@@ -41,28 +40,11 @@
 	<interceptors>
 		
 		<!-- 로그인  -->
-=======
-<!--   	<beans:bean id="myinterceptor" class="kr.co.interceptor.MyInterceptor"></beans:bean>
-  	<beans:bean id="logininterceptor" class="kr.co.interceptor.LoginInterceptor"></beans:bean>
-	<beans:bean id="authinterceptor" class="kr.co.interceptor.AuthInterceptor"></beans:bean>
-	 -->
-	<!-- 인터셉터 객체의 사용, 사용객체id(ref)- 객체사용위치(mapping) -->
-	<!-- <interceptors>
-		<interceptor>
-			<mapping path="/test"/>		인터셉터 사용 위치(MVC handler의 uri(value) 
-			<beans:ref bean="myinterceptor"/>
-		</interceptor>
-		로그인 
->>>>>>> rmh6363
 		<interceptor>
 			<mapping path="/member/loginPost"/>		
 			<beans:ref bean="logininterceptor"/>
 		</interceptor>
-<<<<<<< HEAD
 		<!-- 로그인인증 -->
-=======
-		로그인인증
->>>>>>> rmh6363
 		<interceptor>
 			<mapping path="/board/insert"/>
 			<mapping path="/board/update"/>
@@ -70,19 +52,12 @@
 			<beans:ref bean="authinterceptor"/>
 		</interceptor>
 		
-<<<<<<< HEAD
 	</interceptors>
-=======
-	</interceptors> -->
->>>>>>> rmh6363
 
 	
 	<context:component-scan base-package="kr.co.naver" />
 	<context:component-scan base-package="kr.co.ezen" />
-<<<<<<< HEAD
 
-=======
->>>>>>> rmh6363
 	<context:component-scan base-package="kr.co.controller" />
 	
 </beans:beans>

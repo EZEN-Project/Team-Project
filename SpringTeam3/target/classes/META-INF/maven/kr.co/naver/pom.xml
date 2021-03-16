@@ -5,7 +5,7 @@
 	<groupId>kr.co</groupId>
 	<artifactId>naver</artifactId>
 	<name>HelloWorld</name>
-	<packaging>war</packaging>
+	
 	
 
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -192,22 +192,7 @@
 		</dependency>        
 	</dependencies>
     <build>
-    
-    
-    
         <plugins>
-          <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <warName>sample</warName>
- 
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-        
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>

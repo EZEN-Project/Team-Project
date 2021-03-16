@@ -17,18 +17,13 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<<<<<<< HEAD
-<script src="/resources/js/cart.js?vs=0.34" type="text/javascript"></script>
-</head>
-<body>
-	<div class="row text-right">
-=======
+
 <script src="/resources/js/cart.js?vs=0.22" type="text/javascript"></script>
 </head>
 <body>
 	<div class="row text-right">
 <!-- 로그인버튼	 -->
->>>>>>> rmh6363
+
 		<c:choose>
 			<c:when test="${empty login}">
 				<a href="/member/login">로그인</a>
@@ -42,7 +37,7 @@
 		<button class="btn btn-primary btn-md goCart" type="button">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 		 	 장바구니 <span id="cartCount" class="badge"></span>
-<<<<<<< HEAD
+
 		</button>
 <!-- 마이페이지 버튼 -->		
 		<a href="#"><button class="btn btn-primary btn-md" type="button">
@@ -57,9 +52,7 @@
 		  <li id="cart_li" class="active"><a href="/cart/list">장바구니</a></li>
 		  <li><a href="">구매내역</a></li>
 		</ol>
-=======
-		</button>	
->>>>>>> rmh6363
+
 	</div>
 
 <script type="text/javascript">

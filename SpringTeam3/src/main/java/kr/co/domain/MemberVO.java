@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> rmh6363
 package kr.co.domain;
 
 import java.io.Serializable;
@@ -19,11 +16,7 @@ public class MemberVO implements Serializable{
 	private String email;
 	private String pw;
 	private String name;
-<<<<<<< HEAD
-	private String phone;
-=======
-	private int phone;
->>>>>>> rmh6363
+	private String phone;	
 	private String address;
 	private Date regdate;
 	private Date updatedate;
@@ -36,11 +29,11 @@ public class MemberVO implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-<<<<<<< HEAD
+
 	public MemberVO(int mnum, String id, String email, String pw, String name, String phone, String address, Date regdate,
-=======
-	public MemberVO(int mnum, String id, String email, String pw, String name, int phone, String address, Date regdate,
->>>>>>> rmh6363
+
+	
+
 			Date updatedate, Date birth, int point, int mtype, String memo) {
 		super();
 		this.mnum = mnum;
@@ -87,17 +80,14 @@ public class MemberVO implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-<<<<<<< HEAD
+
 	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
-=======
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
->>>>>>> rmh6363
+
+	
+
 		this.phone = phone;
 	}
 	public String getAddress() {

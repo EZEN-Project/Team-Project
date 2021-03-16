@@ -32,27 +32,21 @@ function cartInsert(sellboardNo, amount, price) {
 	});
 }
 
-<<<<<<< HEAD
+
 // 장바구니 수량 구하기 & 장바구니 삭제버튼
-=======
-// 장바구니 수량 구하기
->>>>>>> rmh6363
+
 function getCartCount() {
 	$.getJSON("/cart/getCartCount", function(result) {
 		if (result <= 0) {
 			$("#cartCount").text("");
-<<<<<<< HEAD
+
 			$("#allDelete").hide();
 			return;
 		}
 		$("#cartCount").text(result);
 		$("#allDelete").show();
 		
-=======
-			return;
-		}
-		$("#cartCount").text(result);
->>>>>>> rmh6363
+
 	});
 }
 
@@ -60,15 +54,11 @@ function getCartCount() {
 function getTotalPrice() {
 	$.getJSON("/cart/getTotalPrice", function(data) {
 		str = "";
-<<<<<<< HEAD
+
 		str +=
 			`<button title="결제하기" type="button" class="list-group-item">
 			<h1 align='right'>총 결제 가격: <span>${data}</span>원 </h1>
-=======
-		str += 
-		`<button title="결제하기" type="button" class="list-group-item">
-			<h1  align='right'>총 결제 가격: <span>${data}</span>원 </h1>
->>>>>>> rmh6363
+
 		</button>`;
 		$(".cartTotalPrice").html(str);
 	});
@@ -88,11 +78,9 @@ function getCartList() {
 			str += `
 			<div class="media">
 				<div class="media-left">
-<<<<<<< HEAD
+
 					<a href="#"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
-=======
-					<a href="#"> <img class="media-object" src="${sellboard.img}" alt="기타이미지.png">
->>>>>>> rmh6363
+
 					</a>
 				</div>
 				<div  class="media-body">
@@ -108,14 +96,11 @@ function getCartList() {
 						<span>${cart.amount}</span>개
 						<button type="button" class="btn btn-default btn-xs">
 							  <span data-cartNo="${cart.cartNo}" data-price="${cart.price}" class="glyphicon glyphicon-plus plus" aria-hidden="true"></span>
-<<<<<<< HEAD
+
 						</button>
 						<span>(최대 ${sellboard.bcount}개)</span> 
 						<button data-sellboardNo="${cart.sellboardNo}" data-title="${sellboard.title}" data-amount="${cart.amount}" data-cartNo="${cart.cartNo}" class="btn btn-default-md cartDelete">삭제</button>
-=======
-						</button> 
-						<button data-cartNo="${cart.cartNo}" class="btn btn-default-md cartDelete">삭제</button>
->>>>>>> rmh6363
+
 					</div>
 					<div class="list-group-item">구매 가격: 
 						<span>${cart.aPrice}</span>원
@@ -123,11 +108,9 @@ function getCartList() {
 				</div>
 			</div>`;
 		}
-<<<<<<< HEAD
+
 		$(".cartList").html(str);
-=======
-		$(".cartList").append(str);
->>>>>>> rmh6363
+
 	});
 }
 
@@ -162,17 +145,8 @@ function cartAmountPlusOne(that) {
 function cartAmountMinusOne(that) {
 	var cartNo = that.attr("data-cartNo");
 	var price = that.attr("data-price");
-<<<<<<< HEAD
-=======
-	$.getJSON("/cart/getAmount/" + cartNo, function(amount) {
-		if (amount <= 1) {
-			alert("1개 이하로 줄일 수 없습니다.");
-			that.parent().hide();
-			return;
-		}
-	});
 
->>>>>>> rmh6363
+
 	$.ajax({
 		type: "put",
 		url: "/cart/cartAmountMinus",
@@ -222,7 +196,7 @@ function cartDelete(that) {
 		}
 	});
 }
-<<<<<<< HEAD
+
 
 // 장바구니 상품 모두 삭제하기
 function cartAllDelete() {
@@ -238,5 +212,4 @@ function cartAllDelete() {
 		}
 	});
 }
-=======
->>>>>>> rmh6363
+
