@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.domain.CartVO;
+import kr.co.domain.MemberVO;
 import kr.co.domain.SellBoardVO;
 import kr.co.domain.SellVO;
 import kr.co.repository.CartDAO;
+import kr.co.repository.MemberDAO;
 import kr.co.repository.SellBoardDAO;
 import kr.co.repository.SellDAO;
 
@@ -27,6 +29,9 @@ public class CartServiceImpl implements CartService {
 	
 	@Inject
 	private SellBoardDAO sellboardDAO;
+	
+	@Inject
+	private MemberDAO memberDAO;
 	
 
 	@Override
@@ -202,23 +207,21 @@ public class CartServiceImpl implements CartService {
 		- 결제 완료 후 마이페이지의 결제내역 창으로 이동
 		*/
 		
-		int success = 1;
-		//String id = map.get("id");
-		//MemberVO memberVO= memberDAO.getMember(id);
-		//int point = memberVO.getPoint();
-		//int memberNo = memberVO.getMnum();
-		int point = 10000000; // test 포인트
-		int memberNo = 1001; // text 회원번호
-		
+		int success = -5;
+		String id = (String) map.get("id");
+		MemberVO memberVO= memberDAO.read(id);
+		int point = memberVO.getPoint();
+		int memberNo = memberVO.getMnum();
+				
 		List<CartVO> list= cartDAO.getCartList(memberNo);
 		int payPrice=0;
 		for (CartVO cartVO : list) {
 			payPrice += cartVO.getaPrice();
 		}
-		point = point-payPrice;
+		point -= payPrice;
 		if(point < 0) {
 			success= -1;
-			return success;		// 포인트가 모자라면 중단
+			return success;		// 포인트가 모자라면 중단 -1
 		}
 		
 		// 판매정보(sellVO) 입력
@@ -239,7 +242,7 @@ public class CartServiceImpl implements CartService {
 			bcount -= amount; 
 			if(bcount<0) {
 				success = -2;
-				return success;	// 판매수량이 부족하면 리턴
+				return success;	// 판매수량이 부족하면 리턴 -2
 			}
 			sellboardVO.setBcount(bcount);
 			sellboardDAO.update(sellboardVO); // 판매상품(상품수량) 업데이트 6
@@ -252,12 +255,13 @@ public class CartServiceImpl implements CartService {
 			// 장바구니 삭제 8
 			cartDAO.delete(cartVO.getCartNo());
 		}
-		//memberVO.setPoint(point);
-		//memberDAO.update(memberVO);	//회원정보(포인트) 업데이트 9
+		memberVO.setPoint(point);
+		String memo ="구매(groupNum): "+ (groupNum+1)+" : 포인트 차감";
+		memberDAO.updatePoint(point, memo, memberVO.getMnum());	//회원정보(포인트) 업데이트 9
 		
 		
-		// 성공1 음수 실패
-		return success;
+		// 성공:포인트 반환, 실패: 음수
+		return point;
 	}
 
 	@Override

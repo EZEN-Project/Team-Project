@@ -59,21 +59,24 @@ constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
 on delete cascade
 )
 
+-- 회원 정보 
 create table member(
 mnum number(6) primary key,
 id varchar2(10) not null,
 email varchar2(20) not null,
 pw varchar2(15) not null,
 name varchar2(12) not null,
-phone varchar2(15) not null,
+phone varchar2(16) not null,
 address varchar2(300) not null,
 regdate DATE DEFAULT SYSDATE,
 updatedate DATE DEFAULT SYSDATE,
-birth date not null,
+birth varchar2(10) not null,
 point number(10) DEFAULT 0,
-mtype number(10) not null,
+mtype number(10) DEFAULT 1,
 memo varchar2(100)
 )
+select * from member
+
 
 create table qboard(
 bnum number(6) primary key,
@@ -90,5 +93,5 @@ select selldate, sum(aprice) as total
         from ((SELECT to_char(selldate, 'yy/fmmm/dd') selldate,aprice FROM sell))
         GROUP BY selldate order by selldate asc
 
-
-
+select * from member
+update member set point= 1000000 where id='c001'

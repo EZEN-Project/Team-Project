@@ -11,6 +11,7 @@ function goCart() {
 
 // 장바구니 상품 추가하기
 function cartInsert(sellboardNo, amount, price) {
+	
 	$.ajax({
 		type: "post",
 		url: "/cart",
@@ -72,7 +73,7 @@ function getCartList() {
 			str += `
 			<div class="media">
 				<div class="media-left">
-					<a href="#"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
+					<a href="/sellboard/read/${sellboard.bnum}"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
 					</a>
 				</div>
 				<div  class="media-body">
@@ -197,3 +198,17 @@ function cartAllDelete() {
 		}
 	});
 }
+
+// 현제 포인트 확인
+function getPoint(){
+	$.getJSON("/member/getPoint", function(map){
+		console.log(map.point);
+	});
+}
+
+
+
+
+
+
+
