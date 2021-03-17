@@ -18,9 +18,12 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script src="/resources/js/cart.js?vs=0.36" type="text/javascript"></script>
+
 </head>
 <body>
 	<div class="row text-right">
+<!-- 로그인버튼	 -->
+
 		<c:choose>
 			<c:when test="${empty login}">
 				<a href="/member/login">로그인</a>
@@ -36,6 +39,7 @@
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 		 	 장바구니 <span id="cartCount" class="badge"></span>
 		</button></a>
+
 <!-- 마이페이지 버튼 -->		
 
 		<a href="#"><button class="btn btn-primary btn-md" type="button">
@@ -48,9 +52,9 @@
 		<ol class="breadcrumb">
 			<li><a href="/">HOME</a></li>
 		  	<li><a href="/sellboard/list">쇼핑</a></li>
-			<li class="${empty login ? 'hidden' : ''}"><a onclick="addPoint()">포인트추가(추후삭제)</a></li>
-			<li class="${empty login ? 'hidden' : ''}"><a href="">구매내역</a></li>
+			<li class="${empty login ? 'hidden' : ''}"><a href="/mypage/list">결제내역</a></li>
 		</ol>
+
 	</div>
 
 <script type="text/javascript">
@@ -60,19 +64,6 @@
 		if(name != ""){
 			getCartCount();
 		}
-		
-		// 포인트 충전(Test)
-		function addPoint(){
-			var point = prompt("충전 포인트입력");
-			if(!isNaN(point)){	// 숫자입력값인지 검사
-				$.getJSON("/member/addPoint/"+ point, function(map){
-					alert("현재 포인트: "+map.point);
-					console.log(map.point);
-				});
-			}else{
-				alert("공백/음수/문자는 입력불가");
-			}
-		}// 나중에 삭제
 	});
 
 </script>

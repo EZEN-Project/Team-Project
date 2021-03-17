@@ -14,11 +14,5 @@ public class viewController {
 
 		return "/cart/list";
 	}
-		
-	// 메인 페이지 연결
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		return "redirect:/main";
-	}
 	
 }

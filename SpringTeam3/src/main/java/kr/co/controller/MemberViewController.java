@@ -28,7 +28,6 @@ public class MemberViewController {
 	//회원가입
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(MemberVO memberVO) {
-		System.out.println(memberVO);// test
 		int success = memberService.insert(memberVO);
 		if(success==1) {
 			return "/member/login";

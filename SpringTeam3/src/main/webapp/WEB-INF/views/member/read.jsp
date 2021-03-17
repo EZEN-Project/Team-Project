@@ -28,12 +28,13 @@
 		<div class="row">	
 			<div class="col-md-12">
 	        <div class="py-7">
-	        	
-	        	
 	            <div class="text-center">
 	       	   		<h2>회원정보</h2>
 	        	    <p class="lead">회원정보 보기</p>
 	            </div>
+	        </div>
+	        <div align="right" class="form-group">
+	        	<button onclick="addPoint()" class="btn btn-info">포인트충전</button>
 	        </div>
 	        	 <input id="pw" name="pw" type="password" class="hidden" value="${memberVO.pw}" >
 	        	 <div class="form-group">

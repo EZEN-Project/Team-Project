@@ -72,8 +72,8 @@ function getCartList() {
 			var sellboard = data[sellNo];
 			str += `
 			<div class="media">
-				<div class="media-left">
-					<a href="/sellboard/read/${sellboard.bnum}"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
+				<div class="media-left media-middle">
+					<a href="#"> <img class="media-object img-thumbnail" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
 					</a>
 				</div>
 				<div  class="media-body">
@@ -206,7 +206,18 @@ function getPoint(){
 	});
 }
 
-
+// 포인트 충전
+function addPoint(){
+	var point = prompt("충전 포인트입력");
+	if(!isNaN(point)){	// 숫자입력값인지 검사
+		$.getJSON("/member/addPoint/"+ point, function(map){
+			alert("현재 포인트: "+map.point);
+			console.log(map.point);
+		});
+	}else{
+		alert("공백/음수/문자는 입력불가");
+	}
+}
 
 
 
