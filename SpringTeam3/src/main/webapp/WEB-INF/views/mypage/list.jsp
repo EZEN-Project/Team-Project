@@ -85,12 +85,12 @@
 				
 				for(var i=0; i<arr.length; i++){
 					var list = arr[i];
-					var sellnum = list.sellnum;
-					var sellboardno = list.sellboardno;
-					var buynum = list.buynum;
+					var sellnum = list.sellNum;
+					var sellboardno = list.sellboardNo;
+					var buynum = list.buyNum;
 					var amount = list.amount;
-					var aprice = list.aprice;
-					var groupnum = list.groupnum;
+					var aprice = list.aPrice;
+					var groupnum = list.groupNum;
 					var img = list.img;
 					if (0 < groupnum) {
 					

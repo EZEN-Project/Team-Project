@@ -3,6 +3,7 @@ package kr.co.domain;
 import java.util.List;
 
 public class PageTO<T> {
+
 	private int curPage = 1;
 	private int perPage = 10;
 	private int perLine = 10;

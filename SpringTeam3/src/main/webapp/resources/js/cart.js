@@ -32,14 +32,21 @@ function cartInsert(sellboardNo, amount, price) {
 	});
 }
 
-// 장바구니 수량 구하기
+
+// 장바구니 수량 구하기 & 장바구니 삭제버튼
+
 function getCartCount() {
 	$.getJSON("/cart/getCartCount", function(result) {
 		if (result <= 0) {
 			$("#cartCount").text("");
+
+			$("#allDelete").hide();
 			return;
 		}
 		$("#cartCount").text(result);
+		$("#allDelete").show();
+		
+
 	});
 }
 
@@ -47,9 +54,11 @@ function getCartCount() {
 function getTotalPrice() {
 	$.getJSON("/cart/getTotalPrice", function(data) {
 		str = "";
-		str += 
-		`<button title="결제하기" type="button" class="list-group-item">
-			<h1  align='right'>총 결제 가격: <span>${data}</span>원 </h1>
+
+		str +=
+			`<button title="결제하기" type="button" class="list-group-item">
+			<h1 align='right'>총 결제 가격: <span>${data}</span>원 </h1>
+
 		</button>`;
 		$(".cartTotalPrice").html(str);
 	});
@@ -69,7 +78,9 @@ function getCartList() {
 			str += `
 			<div class="media">
 				<div class="media-left">
-					<a href="#"> <img class="media-object" src="${sellboard.img}" alt="기타이미지.png">
+
+					<a href="#"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
+
 					</a>
 				</div>
 				<div  class="media-body">
@@ -85,8 +96,11 @@ function getCartList() {
 						<span>${cart.amount}</span>개
 						<button type="button" class="btn btn-default btn-xs">
 							  <span data-cartNo="${cart.cartNo}" data-price="${cart.price}" class="glyphicon glyphicon-plus plus" aria-hidden="true"></span>
-						</button> 
-						<button data-cartNo="${cart.cartNo}" class="btn btn-default-md cartDelete">삭제</button>
+
+						</button>
+						<span>(최대 ${sellboard.bcount}개)</span> 
+						<button data-sellboardNo="${cart.sellboardNo}" data-title="${sellboard.title}" data-amount="${cart.amount}" data-cartNo="${cart.cartNo}" class="btn btn-default-md cartDelete">삭제</button>
+
 					</div>
 					<div class="list-group-item">구매 가격: 
 						<span>${cart.aPrice}</span>원
@@ -94,7 +108,9 @@ function getCartList() {
 				</div>
 			</div>`;
 		}
-		$(".cartList").append(str);
+
+		$(".cartList").html(str);
+
 	});
 }
 
@@ -129,13 +145,7 @@ function cartAmountPlusOne(that) {
 function cartAmountMinusOne(that) {
 	var cartNo = that.attr("data-cartNo");
 	var price = that.attr("data-price");
-	$.getJSON("/cart/getAmount/" + cartNo, function(amount) {
-		if (amount <= 1) {
-			alert("1개 이하로 줄일 수 없습니다.");
-			that.parent().hide();
-			return;
-		}
-	});
+
 
 	$.ajax({
 		type: "put",
@@ -186,3 +196,20 @@ function cartDelete(that) {
 		}
 	});
 }
+
+
+// 장바구니 상품 모두 삭제하기
+function cartAllDelete() {
+	$.getJSON("/cart/allDelete", function(result) {
+		if (result <= 0) {
+			alert("삭제실패");
+		} else {
+			//삭제후 태그 삭제
+			$(".media").remove();
+			// 삭제후 총가격 갱신
+			getTotalPrice();
+			alert("상품이 모두 삭제되었습니다");
+		}
+	});
+}
+
