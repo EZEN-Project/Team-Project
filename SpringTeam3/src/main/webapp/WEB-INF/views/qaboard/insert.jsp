@@ -50,7 +50,7 @@
 
 				<div class="form-group">
 					<label for="writer">작성자</label> <input class="form-control"
-						id="writer" name="writer" value="${login.userId}"
+						id="writer" name="writer" value="${login.id}" readonly="readonly"
 						>
 				</div>
 

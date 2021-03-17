@@ -60,19 +60,26 @@
             <textarea class="form-control" id="content" name="content">${vo.content}</textarea>
          </div>
       </div>
-        
+      <c:choose>
+       <c:when test="${login.id==vo.writer}">
       <div class="row">
          <button id="read_btn_update" class="btn btn-warning">수정</button>
          <button id="read_btn_delete" class="btn btn-danger">삭제</button>
          <button id="reply_form" class="btn">댓글</button>
          <button id="read_btn_list" class="btn btn-info">목록</button>
+         
       </div><!--class=row  -->
-   
+      </c:when>
+      <c:otherwise>
+    	 <button id="read_btn_list" class="btn btn-info">목록</button>
+      
+      </c:otherwise>
+   	</c:choose>
       <div class="row" style="margin-top: 50px;">
          <div class="collapse" id="myCollapse">
            <div class="form-group">
              <label for="replyer">작성자</label>
-             <input class="form-control" id="replyer" name="replyer">
+             <input class="form-control" id="replyer" name="replyer" value="${vo.writer}">
            </div>
            
            <div class="form-group">
@@ -275,19 +282,33 @@
                 
                 var dateStr = year+"/"+month+"/"+date;
                 console.log(dateStr);
+                if (${login.id == vo.writer}) { str += '<div class="panel panel-primary">'+
+                    '<div class="panel-heading">'+
+                    '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
+                    '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
+                   '</div>'+
+                   '<div class="panel-body">'+
+                     '<p>'+obj["replyText"]+'</p>'+
+                     '<button data-rno="'+obj["rno"]+'"  class="?btn btn-warning btn-xs btn-update">수정</button>'+
+                     '<button data-rno="'+obj["rno"]+'"  class="btn btn-danger btn-xs btn-delete">삭제</button>'+
+                   '</div>'+
+                 '</div>';
+					
+				}else {
+					 str += '<div class="panel panel-primary">'+
+	                  '<div class="panel-heading">'+
+	                   '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
+	                   '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
+	                  '</div>'+
+	                  '<div class="panel-body">'+
+	                    '<p>'+obj["replyText"]+'</p>'+
+	                    
+	                  '</div>'+
+	                '</div>';
+					
+				}
                 
-                
-                str += '<div class="panel panel-primary">'+
-                  '<div class="panel-heading">'+
-                   '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
-                   '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
-                  '</div>'+
-                  '<div class="panel-body">'+
-                    '<p>'+obj["replyText"]+'</p>'+
-                    '<button data-rno="'+obj["rno"]+'"  class="btn btn-warning btn-xs btn-update">수정</button>'+
-                    '<button data-rno="'+obj["rno"]+'"  class="btn btn-danger btn-xs btn-delete">삭제</button>'+
-                  '</div>'+
-                '</div>';
+               
                 
              }
              

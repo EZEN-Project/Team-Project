@@ -60,7 +60,7 @@ constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
 on delete cascade
 )
 
-
+drop table member
 -- 회원 정보 
 create table member(
 mnum number(6) primary key,
@@ -75,8 +75,6 @@ updatedate DATE DEFAULT SYSDATE,
 birth varchar2(10) not null,
 point number(10) DEFAULT 0,
 mtype number(10) DEFAULT 1,
-
->>>>>>> d5bc4a61e7bf4caad0158f37f6ec98695da2b25f
 memo varchar2(100)
 )
 select * from member
