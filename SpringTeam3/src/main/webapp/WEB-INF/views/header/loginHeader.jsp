@@ -17,8 +17,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script src="/resources/js/cart.js?vs=0.36" type="text/javascript"></script>
 
-<script src="/resources/js/cart.js?vs=0.22" type="text/javascript"></script>
 </head>
 <body>
 	<div class="row text-right">
@@ -29,17 +29,19 @@
 				<a href="/member/login">로그인</a>
 			</c:when>
 			<c:otherwise>
-				<span>${login.userId} 님, 환영합니다.</span>
+				<span><a href="/member/read">${login.name}</a> 님, 환영합니다.</span>
 				<a href="/member/logout">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
 <!-- 장바구니 버튼 -->
+		<a href="/cart/list">
 		<button class="btn btn-primary btn-md goCart" type="button">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 		 	 장바구니 <span id="cartCount" class="badge"></span>
+		</button></a>
 
-		</button>
 <!-- 마이페이지 버튼 -->		
+
 		<a href="#"><button class="btn btn-primary btn-md" type="button">
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 		 	 마이페이지
@@ -48,18 +50,20 @@
 	</div><!-- row -->
 	<div class="row">
 		<ol class="breadcrumb">
-		  <li><a href="">쇼핑</a></li>
-		  <li id="cart_li" class="active"><a href="/cart/list">장바구니</a></li>
-		  <li><a href="">구매내역</a></li>
+			<li><a href="/">HOME</a></li>
+		  	<li><a href="/sellboard/list">쇼핑</a></li>
+			<li class="${empty login ? 'hidden' : ''}"><a href="/mypage/list">결제내역</a></li>
 		</ol>
 
 	</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		getCartCount();
-		goCart();
-		
+		var name ='${login.name}';
+		console.log(name);
+		if(name != ""){
+			getCartCount();
+		}
 	});
 
 </script>

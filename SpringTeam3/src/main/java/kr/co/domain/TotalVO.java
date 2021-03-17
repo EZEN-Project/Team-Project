@@ -1,7 +1,6 @@
 package kr.co.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class TotalVO implements Serializable{
 	/**

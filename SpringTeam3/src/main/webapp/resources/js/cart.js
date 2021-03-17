@@ -11,6 +11,7 @@ function goCart() {
 
 // 장바구니 상품 추가하기
 function cartInsert(sellboardNo, amount, price) {
+	
 	$.ajax({
 		type: "post",
 		url: "/cart",
@@ -32,21 +33,17 @@ function cartInsert(sellboardNo, amount, price) {
 	});
 }
 
-
 // 장바구니 수량 구하기 & 장바구니 삭제버튼
-
 function getCartCount() {
 	$.getJSON("/cart/getCartCount", function(result) {
 		if (result <= 0) {
 			$("#cartCount").text("");
-
 			$("#allDelete").hide();
 			return;
 		}
 		$("#cartCount").text(result);
 		$("#allDelete").show();
 		
-
 	});
 }
 
@@ -54,11 +51,9 @@ function getCartCount() {
 function getTotalPrice() {
 	$.getJSON("/cart/getTotalPrice", function(data) {
 		str = "";
-
 		str +=
 			`<button title="결제하기" type="button" class="list-group-item">
 			<h1 align='right'>총 결제 가격: <span>${data}</span>원 </h1>
-
 		</button>`;
 		$(".cartTotalPrice").html(str);
 	});
@@ -77,10 +72,8 @@ function getCartList() {
 			var sellboard = data[sellNo];
 			str += `
 			<div class="media">
-				<div class="media-left">
-
-					<a href="#"> <img class="media-object" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
-
+				<div class="media-left media-middle">
+					<a href="#"> <img class="media-object img-thumbnail" height="164" width="164" src="/resources/upload/${sellboard.name}" alt="/resources/upload/esc.png">
 					</a>
 				</div>
 				<div  class="media-body">
@@ -96,11 +89,9 @@ function getCartList() {
 						<span>${cart.amount}</span>개
 						<button type="button" class="btn btn-default btn-xs">
 							  <span data-cartNo="${cart.cartNo}" data-price="${cart.price}" class="glyphicon glyphicon-plus plus" aria-hidden="true"></span>
-
 						</button>
 						<span>(최대 ${sellboard.bcount}개)</span> 
 						<button data-sellboardNo="${cart.sellboardNo}" data-title="${sellboard.title}" data-amount="${cart.amount}" data-cartNo="${cart.cartNo}" class="btn btn-default-md cartDelete">삭제</button>
-
 					</div>
 					<div class="list-group-item">구매 가격: 
 						<span>${cart.aPrice}</span>원
@@ -108,9 +99,7 @@ function getCartList() {
 				</div>
 			</div>`;
 		}
-
 		$(".cartList").html(str);
-
 	});
 }
 
@@ -145,8 +134,6 @@ function cartAmountPlusOne(that) {
 function cartAmountMinusOne(that) {
 	var cartNo = that.attr("data-cartNo");
 	var price = that.attr("data-price");
-
-
 	$.ajax({
 		type: "put",
 		url: "/cart/cartAmountMinus",
@@ -197,7 +184,6 @@ function cartDelete(that) {
 	});
 }
 
-
 // 장바구니 상품 모두 삭제하기
 function cartAllDelete() {
 	$.getJSON("/cart/allDelete", function(result) {
@@ -212,4 +198,28 @@ function cartAllDelete() {
 		}
 	});
 }
+
+// 현제 포인트 확인
+function getPoint(){
+	$.getJSON("/member/getPoint", function(map){
+		console.log(map.point);
+	});
+}
+
+// 포인트 충전
+function addPoint(){
+	var point = prompt("충전 포인트입력");
+	if(!isNaN(point)){	// 숫자입력값인지 검사
+		$.getJSON("/member/addPoint/"+ point, function(map){
+			alert("현재 포인트: "+map.point);
+			console.log(map.point);
+		});
+	}else{
+		alert("공백/음수/문자는 입력불가");
+	}
+}
+
+
+
+
 

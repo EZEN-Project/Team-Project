@@ -1,14 +1,4 @@
--- Q&A 댓글 테이블
-create table qreply(
-rno number(6) primary key,
-bnum number(6),
-replytext varchar2(1000) not null,
-replyer varchar2(30) not null,
-regdate date default sysdate,
-updatedate date default sysdate,
 
-constraint fk_qreply_bnum foreign key(bnum) references qboard(bnum)
-)
 
 -- 장바구니 테이블 
 create table cart(
@@ -69,58 +59,57 @@ regdate date default sysdate,
 constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
 on delete cascade
 )
-select * from qboard
-=======
-create table goods(
-gnum number(6) primary key,
-name varchar2(300) not null,
-cost number(10) DEFAULT 0,
-price number(10) DEFAULT 0,
-writedate DATE DEFAULT SYSDATE,
-updatedate DATE DEFAULT SYSDATE
-)
->>>>>>> rmh6363
+
+
+-- 회원 정보 
 create table member(
 mnum number(6) primary key,
 id varchar2(10) not null,
 email varchar2(20) not null,
 pw varchar2(15) not null,
 name varchar2(12) not null,
-<<<<<<< HEAD
-phone varchar2(15) not null,
-=======
-phone number(15) not null,
->>>>>>> rmh6363
+phone varchar2(16) not null,
 address varchar2(300) not null,
 regdate DATE DEFAULT SYSDATE,
 updatedate DATE DEFAULT SYSDATE,
-birth date not null,
+birth varchar2(10) not null,
 point number(10) DEFAULT 0,
-<<<<<<< HEAD
-mtype number(10) not null,
+mtype number(10) DEFAULT 1,
+
+>>>>>>> d5bc4a61e7bf4caad0158f37f6ec98695da2b25f
 memo varchar2(100)
 )
-select * from qboard
--- Q&A보드 테이블
+select * from member
+
+
 create table qboard(
+=======
+type number(10) not null,
+memo varchar2(100)
+)
+select * from member
+drop table sell
+create table board(
+>>>>>>> rmh6363
 bnum number(6) primary key,
 title varchar2(300) not null,
 writer varchar2(300) not null,
 content varchar2(300) not null,
 veiwcnt number(6) default 0,
+<<<<<<< HEAD
 regdate DATE DEFAULT SYSDATE,
-updatedate DATE DEFAULT SYSDATE,
-replycnt number default 0,
-viewcnt number default 0
+updatedate DATE DEFAULT SYSDATE
 )
---replycnt 추가
-alter table qboard add replycnt number;
-drop table qboard
-drop table qreply
+
+
 select selldate, sum(aprice) as total
         from ((SELECT to_char(selldate, 'yy/fmmm/dd') selldate,aprice FROM sell))
         GROUP BY selldate order by selldate asc
 
+<<<<<<< HEAD
+select * from member
+update member set point= 1000000 where id='c001'
+=======
 
 
 =======
@@ -151,3 +140,4 @@ select selldate, sum(aprice) as aprice
 from ((SELECT to_char(selldate, 'yyyy/fmmm/dd') selldate,aprice FROM sell))
 GROUP BY selldate order by selldate asc
 >>>>>>> rmh6363
+>>>>>>> d5bc4a61e7bf4caad0158f37f6ec98695da2b25f
