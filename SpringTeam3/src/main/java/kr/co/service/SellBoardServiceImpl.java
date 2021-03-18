@@ -1,6 +1,8 @@
 package kr.co.service;
 
+
 import java.util.List;
+
 
 import javax.inject.Inject;
 
@@ -59,4 +61,43 @@ public class SellBoardServiceImpl implements SellBoardService{
 		
 	}
 
-}
+	@Override
+	public List<SellBoardVO> list() {
+		
+		List<SellBoardVO> sellboradlist = sellboardDao.list();
+		
+		
+		for (SellBoardVO sellboardVO : sellboradlist) {
+			int sellboardBnum = sellboardVO.getBnum();
+			
+			List<String> imgArr = sellboardDao.getAttaches(sellboardBnum);
+			String img="";
+			if(imgArr.size()==0) {
+				img = "";
+			}else {
+				img += imgArr.get(0);
+			}
+			sellboardVO.setContent(img);
+			
+		}
+
+		
+		return sellboradlist;
+	}
+
+	@Override
+	public void deleteFile(String fileName) {
+		sellboardDao.deleteFile(fileName);
+		
+	}
+
+
+
+	}
+
+
+
+
+
+
+

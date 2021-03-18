@@ -47,4 +47,13 @@
 	<delete id="delete">
 		DELETE FROM sellboard WHERE bnum = #{bnum}
 	</delete>
+	
+	<select id="list" resultType="kr.co.domain.SellBoardVO">
+		SELECT *FROM sellboard ORDER BY bnum DESC
+	</select>
+	
+	<delete id="deleteFile">
+	delete from attach where fullName = #{fileName}
+	</delete>
+
 </mapper>
