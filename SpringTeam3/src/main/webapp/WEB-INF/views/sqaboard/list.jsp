@@ -35,13 +35,25 @@
 			<h1 class="jumbotron">Q&A</h1>                
 		</div>
 		<hr>
-		
+		     <nav class="navbar navbar-default">
+
+      <div class="navbar-header">
+
+      <a class="navbar-brand" href="/sellboard/list">상품</a>
+      <a class="navbar-brand" href="/qaboard/list">Q&A</a>
+ 
+    </div>
+
+
+
+</nav>
+<hr>
 		
 		<div class="row">
 		<table class="table table-hover">
 		<thead>
 			<tr>
-			<!-- <th>상품</th> -->
+		
 				<th>글번호</th>
 				<th>제목</th>
 				<th>작성자</th>
@@ -53,7 +65,7 @@
 		<tbody>
 			<c:forEach items="${spt.list}" var="dto">
 				<tr>
-					<%-- <td><a href=""><img src="${dto.img}" alt""></a></td> --%>	
+					
 					
 					<td>${dto.bnum}</td>
 					<td><a href="/qaboard/read/${dto.bnum}?curPage=${to.curPage}">${dto.title} [${dto.replyCnt}]</a></td>

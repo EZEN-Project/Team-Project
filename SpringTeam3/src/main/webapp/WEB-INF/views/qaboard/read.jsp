@@ -282,15 +282,16 @@
                 
                 var dateStr = year+"/"+month+"/"+date;
                 console.log(dateStr);
-                if (${login.id == vo.writer}) { str += '<div class="panel panel-primary">'+
+                if (${login.id == vo.writer}) { 
+                	str += '<div class="panel panel-primary">'+
                     '<div class="panel-heading">'+
                     '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
                     '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
                    '</div>'+
                    '<div class="panel-body">'+
                      '<p>'+obj["replyText"]+'</p>'+
-                     '<button data-rno="'+obj["rno"]+'"  class="?btn btn-warning btn-xs btn-update">수정</button>'+
-                     '<button data-rno="'+obj["rno"]+'"  class="btn btn-danger btn-xs btn-delete">삭제</button>'+
+                     '<button data-rno="'+obj["rno"]+'"class="btn btn-warning btn-xs btn-update">수정</button>'+
+                     '<button data-rno="'+obj["rno"]+'"class="btn btn-danger btn-xs btn-delete">삭제</button>'+
                    '</div>'+
                  '</div>';
 					
