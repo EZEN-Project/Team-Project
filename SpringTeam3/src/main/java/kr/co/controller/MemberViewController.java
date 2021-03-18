@@ -94,11 +94,9 @@ public class MemberViewController {
 		 if(login != null) {
 			 session.removeAttribute("login"); 
 		 }
-<<<<<<< HEAD
-		 return "redirect:/";
-=======
+
 		 return "/";
->>>>>>> main
+
 	}
 	
 	
