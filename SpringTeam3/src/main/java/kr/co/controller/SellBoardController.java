@@ -2,10 +2,7 @@ package kr.co.controller;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -77,29 +74,6 @@ public class SellBoardController {
 		return "redirect:/sellboard/list";
 	}
 	
-	
-	
-	@RequestMapping(value = "/read/{bnum}")
-	public String read(@PathVariable("bnum")int bnum, Model model) {
-		SellBoardVO vo = sellboardService.read(bnum);
-		model.addAttribute("vo", vo);
-		
-		
-		return "sellboard/read";
-	}
-	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model) {
-
-		List<SellBoardVO> list = sellboardService.list();
-		model.addAttribute("list", list);
-		
-		return "sellboard/list";
-	}
-	
-
-
-	
 	@ResponseBody
 	@RequestMapping(value = "/upload", 
 					method = RequestMethod.POST,
@@ -121,6 +95,15 @@ public class SellBoardController {
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public void upload() {
 		
+	}
+	
+	@RequestMapping(value = "/read/{bnum}")
+	public String read(@PathVariable("bnum")int bnum, Model model) {
+		SellBoardVO vo = sellboardService.read(bnum);
+		model.addAttribute("vo", vo);
+		
+		
+		return "sellboard/read";
 	}
 	
 	
@@ -178,8 +161,6 @@ public class SellBoardController {
 		return sellboardService.getAttaches(bnum);
 	}
 	
-	
-	
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
 		
@@ -201,13 +182,6 @@ public class SellBoardController {
 	
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/deleteFile", method = RequestMethod.POST)
-	public String deleteFile(String fileName) {
-		
-		sellboardService.deleteFile(fileName);
-		
-		return fileName;
-	}
+	
 	
 }

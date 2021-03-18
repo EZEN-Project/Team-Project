@@ -64,9 +64,9 @@ public class FileUploadDownloadUtils {
 	}
 
 	public static String upload(MultipartFile file, 
-			  String uploadPath, String savedName) 
-					  				throws Exception {
-
+							  String uploadPath, String savedName) 
+									  				throws Exception {
+		
 		String savedPath = calcPath(uploadPath);
 		File target = new File(uploadPath+savedPath, savedName);
 		FileCopyUtils.copy(file.getBytes(), target);
@@ -79,19 +79,19 @@ public class FileUploadDownloadUtils {
 		String uploadFileName = null;
 		
 		if(mType != null) {
-		uploadFileName = makeThumbnail(uploadPath, savedPath, savedName);
-		
+			uploadFileName = makeThumbnail(uploadPath, savedPath, savedName);
+			
 		}else {
-		
-		uploadFileName= (savedPath+File.separator+savedName)
-					.replace(File.separatorChar, '/');
-		
+			
+			uploadFileName= (savedPath+File.separator+savedName)
+							.replace(File.separatorChar, '/');
+			
 		}
 		System.out.println(uploadFileName);
 		return uploadFileName;
 		
 		
-		}
+	}
 
 
 	private static String makeThumbnail(String uploadPath, 
@@ -116,8 +116,8 @@ public class FileUploadDownloadUtils {
 
 
 	public static String upload(MultipartFile file, 
-			String uploadPath) throws Exception {
-		
+								String uploadPath) throws Exception {
+
 		String savedName= makeFileName(file.getOriginalFilename());
 		
 		
@@ -133,20 +133,19 @@ public class FileUploadDownloadUtils {
 		String uploadFileName = null;
 		
 		if(mType != null) {
-		uploadFileName = makeThumbnail(uploadPath, savedPath, savedName);
-		
+			uploadFileName = makeThumbnail(uploadPath, savedPath, savedName);
+			
 		}else {
-		
-		uploadFileName= (savedPath+File.separator+savedName)
-				.replace(File.separatorChar, '/');
-		
+			
+			uploadFileName= (savedPath+File.separator+savedName)
+							.replace(File.separatorChar, '/');
+			
 		}
 		return uploadFileName;
-
-
-
-
-}
-
+		
+		
+	
+		
+	}
 
 }

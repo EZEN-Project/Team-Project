@@ -1,5 +1,3 @@
-
-
 function makeHtmlCode_read(data){
    var img = checkImgType(data)?"/resources/upload/"+data : "/resources/esc.png";
    

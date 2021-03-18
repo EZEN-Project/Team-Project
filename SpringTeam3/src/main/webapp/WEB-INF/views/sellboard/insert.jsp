@@ -98,26 +98,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-        $(".uploadedList").on("click", ".delbtn", function() {
-            var that = $(this);
-            
-            $.ajax({
-               type : 'post',
-               url : '/sellboard/deleteFile',
-               data : {
-                  fileName : that.attr("data-src")
-               },
-               dataType : 'text', 
-               success : function(result) {
-                  if(result=='o'){
-                     that.parent().parent().parent().remove();
-                  }else{
-                     alert("삭제 실패했습니다.");
-                  }
-               }
-            });
-         });
-        
         $(".fileDrop").on("dragenter dragover", function(event) {
             event.preventDefault();
          });
@@ -159,9 +139,7 @@
 		             
 		             $("form").submit();
 		          });
-         $("#insert_btn_list").click(function() {
-       	  location.href='/sellboard/list';
-          });
+		
 		
 	});
 	

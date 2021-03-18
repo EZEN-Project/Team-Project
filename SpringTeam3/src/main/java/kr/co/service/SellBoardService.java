@@ -1,7 +1,6 @@
 package kr.co.service;
 
 import java.util.List;
-import java.util.Map;
 
 import kr.co.domain.SellBoardVO;
 
@@ -18,12 +17,5 @@ public interface SellBoardService {
 	public void update(SellBoardVO vo);
 
 	public void delete(int bnum);
-
-	public List<SellBoardVO> list();
-
-	public void deleteFile(String fileName);
-
-
-
 
 }
