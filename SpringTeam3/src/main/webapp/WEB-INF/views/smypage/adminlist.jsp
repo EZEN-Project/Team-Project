@@ -53,10 +53,17 @@
 		<tbody>
 			<c:forEach items="${spt.list}" var="dto">
 				<tr>
+<<<<<<< HEAD
 					<%-- <td><a href=""><img src="${dto.img}" alt""></a></td> --%>	
 					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.sellDate}"/> </td>
 					<td>${dto.sellNum}</td>
 					<td>${dto.buyNum}</td>
+=======
+					<%-- <td><a href=""><img src="resources/upload/${dto.img}" alt""></a></td> --%>	
+					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.selldate}"/> </td>
+					<td>${dto.sellnum}</td>
+					<td>${dto.buynum}</td>
+>>>>>>> main
 					<td>${dto.amount}개</td>
 					<td>${dto.aPrice}원</td>
 				</tr>

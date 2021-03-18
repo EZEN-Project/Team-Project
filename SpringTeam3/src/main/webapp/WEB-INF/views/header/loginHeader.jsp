@@ -17,11 +17,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<script src="/resources/js/cart.js?vs=0.36" type="text/javascript"></script>
+<script src="/resources/js/cart.js?vs=0.37" type="text/javascript"></script>
 
 </head>
 <body>
-	<div class="row text-right">
+	<div style="margin: 15px 15px 15px;" class="row text-right">
 <!-- 로그인버튼	 -->
 
 		<c:choose>
@@ -34,14 +34,20 @@
 			</c:otherwise>
 		</c:choose>
 <!-- 장바구니 버튼 -->
-		<a href="/cart/list">
+		<a class="${login.mType == 1 ? '' :'hidden' }" href="/cart/list">
 		<button class="btn btn-primary btn-md goCart" type="button">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 		 	 장바구니 <span id="cartCount" class="badge"></span>
 		</button></a>
-
+<!-- 매출차트 버튼-->
+		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/mypage/sales">
+			<button class="btn btn-danger btn-md goSales" type="button">매출</button>
+		</a>
 <!-- 마이페이지 버튼 -->		
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 		<a href="/mypage/mypage"><button class="btn btn-primary btn-md" type="button">
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 		 	 마이페이지

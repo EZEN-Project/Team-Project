@@ -46,9 +46,14 @@
 		</interceptor>
 		<!-- 로그인인증 -->
 		<interceptor>
+<<<<<<< HEAD
 			<mapping path="/qaboard/insert"/>
 			
 			<mapping path="/qaboard/update"/>
+=======
+			<mapping path="/member/read"/>
+			<mapping path="/member/update"/>
+>>>>>>> main
 			<mapping path="/cart/insert"/>
 			<mapping path="/cart/list"/>
 			<mapping path="/mypage/**"/>
