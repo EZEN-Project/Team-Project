@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -177,8 +177,10 @@
 				$("#pw").val(password);
 				
 				var deleteConfig = $("#pw").val();
-				alert("비민번호: "+deleteConfig)// 비밀번호 확인후 삭제
-				
+				if(deleteConfig == ""){
+					alert("탈퇴 취소");
+					return;
+				}
 				$("#form").submit();
 				
 				

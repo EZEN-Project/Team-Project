@@ -53,7 +53,7 @@
 		<tbody>
 			<c:forEach items="${spt.list}" var="dto">
 				<tr>
-					<%-- <td><a href=""><img src="${dto.img}" alt""></a></td> --%>	
+					<%-- <td><a href=""><img src="resources/upload/${dto.img}" alt""></a></td> --%>	
 					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.selldate}"/> </td>
 					<td>${dto.sellnum}</td>
 					<td>${dto.buynum}</td>
