@@ -44,6 +44,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+
 	
 	// 결제 버튼을 누르면 결제창 보이기
 	$(".cartTotalPrice").click(function() {
@@ -145,6 +146,7 @@ $(document).ready(function() {
 	$("#payModal_btn_payCS").click(function() {
 		$("#pw").val("");	
 	});
+	
 	
 	
 	

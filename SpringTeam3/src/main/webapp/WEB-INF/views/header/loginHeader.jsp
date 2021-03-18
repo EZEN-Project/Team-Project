@@ -42,7 +42,7 @@
 
 <!-- 마이페이지 버튼 -->		
 
-		<a href="#"><button class="btn btn-primary btn-md" type="button">
+		<a href="/mypage/mypage"><button class="btn btn-primary btn-md" type="button">
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 		 	 마이페이지
 		</button></a>	

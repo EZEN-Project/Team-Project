@@ -25,7 +25,7 @@ public class sQABoardController {
 		@Inject
 		private SQABoardService sService;
 	
-		
+		//Q&A 게시판 검색기능
 		@RequestMapping(value = "/list/{searchType}/{keyword}/{curPage}", method=RequestMethod.GET)
 		public String list(@PathVariable("searchType") String searchType,
 				@PathVariable("keyword") String keyword,

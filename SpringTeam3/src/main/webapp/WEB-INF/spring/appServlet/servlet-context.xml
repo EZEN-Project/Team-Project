@@ -42,13 +42,16 @@
 		<!-- 로그인  -->
 		<interceptor>
 			<mapping path="/member/loginPost"/>		
-			<beans:ref bean="logininterceptor"/>
+			<beans:ref bean="logininterceptor"/>	
 		</interceptor>
 		<!-- 로그인인증 -->
 		<interceptor>
+			<mapping path="/qaboard/insert"/>
+			
+			<mapping path="/qaboard/update"/>
 			<mapping path="/cart/insert"/>
 			<mapping path="/cart/list"/>
-			<mapping path="/board/insert"/>
+			<mapping path="/mypage/**"/>
 			<mapping path="/board/update"/>
 			<mapping path="/board/delete"/>
 			<beans:ref bean="authinterceptor"/>

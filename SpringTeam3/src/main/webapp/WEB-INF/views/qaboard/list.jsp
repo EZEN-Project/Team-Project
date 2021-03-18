@@ -32,19 +32,9 @@
 		</div>
 		<jsp:include page="/WEB-INF/views/header/mainHeader.jsp"></jsp:include>
 		<hr>
-		<c:choose>
-			<c:when test="${empty login}">
-					
-			</c:when>
-			<c:otherwise>
-			<div class="row">
+		<div class="row">
 			<a class="btn btn-primary" href="/qaboard/insert">글쓰기</a>
-		    </div>	
-			</c:otherwise>
-			
-		
-		</c:choose>
-		
+		    </div>
 		
 		<div class="row">
 		<table class="table table-hover">

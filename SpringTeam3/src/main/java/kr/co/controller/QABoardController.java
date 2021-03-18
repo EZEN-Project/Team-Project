@@ -22,6 +22,7 @@ public class QABoardController {
 	@Inject
 	private QnABoardService boardService;
 	
+	//Q&A게시물 수정
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(QnABoardVO vo) {
 		
@@ -33,7 +34,7 @@ public class QABoardController {
 	}
 	
 	
-	
+	//Q&A게시물UI
 	@RequestMapping(value = "/update/{bnum}", method = RequestMethod.GET)
 	public String update(@PathVariable("bnum") int bnum, Model model) {
 		QnABoardVO vo = boardService.updateUI(bnum);
@@ -41,6 +42,7 @@ public class QABoardController {
 		
 		return "qaboard/update";
 	}
+	//Q&A게시물 자세히보기
 	@RequestMapping(value = "/read/{bnum}", method = RequestMethod.GET)
 	public String read(@PathVariable("bnum") int bnum, Model model) {
 	   QnABoardVO vo = boardService.read(bnum);
@@ -48,6 +50,7 @@ public class QABoardController {
 		
 		return "qaboard/read";
 	}
+	//Q&A게시물 삭제
 	@RequestMapping(value = "/delete", method=RequestMethod.POST)
 	public String delete(int bnum) {
 		
@@ -55,6 +58,7 @@ public class QABoardController {
 		
 		return "redirect:/qaboard/list";
 	}
+	//Q&A 글쓰기
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(QnABoardVO vo) {
 		
@@ -63,13 +67,13 @@ public class QABoardController {
 		return "redirect:/qaboard/read/"+vo.getBnum();
 	}
 	
-	
+	//Q&A글쓰기 페이지로 이동
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public void insert() {
 		
 	}
 	
-	
+	//Q&A페이징 처리
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model) {
 		int curPage = 1;
@@ -90,7 +94,7 @@ public class QABoardController {
 	}
 	
 	
-	
+	//Q&A페이징 처리
 	@RequestMapping(value = "/list/{curPage}", method = RequestMethod.GET)
 	public String list(Model model, @PathVariable("curPage") String sCurPage) {
 		

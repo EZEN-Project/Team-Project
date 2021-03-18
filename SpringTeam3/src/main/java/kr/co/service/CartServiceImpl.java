@@ -249,7 +249,7 @@ public class CartServiceImpl implements CartService {
 			
 			// 판매정보 저장 7
 			SellVO sellVO = new SellVO(cartVO.getMemberNo(), sellboardNo, amount, cartVO.getaPrice(), img);
-			sellVO.setGroupNum(groupNum+1);
+			sellVO.setGroupNum(groupNum<1? 1: groupNum+1);
 			sellDAO.insert(sellVO);
 			
 			// 장바구니 삭제 8

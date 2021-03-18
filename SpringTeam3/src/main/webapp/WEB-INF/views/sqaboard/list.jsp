@@ -48,6 +48,9 @@
 
 </nav>
 <hr>
+<div class="row">
+			<a class="btn btn-primary" href="/qaboard/insert">글쓰기</a>
+		    </div>
 		
 		<div class="row">
 		<table class="table table-hover">

@@ -21,7 +21,7 @@ public class ReplyController {
 	
 	@Inject
 	private ReplyService replyService;
-	
+	//댓글수정
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String update(@RequestBody Map<String, Object> map) {
 		
@@ -33,7 +33,7 @@ public class ReplyController {
 		
 		return "x";
 	}
-	
+	//댓글삭제
 	@RequestMapping(value = "", method = RequestMethod.DELETE)
 	public String delete(@RequestBody Map<String, Object> map) {
 		
@@ -47,7 +47,7 @@ public class ReplyController {
 		return "x";
 	}
 
-	
+	//댓글리스트
 	@RequestMapping(value = "/{bnum}/{curPage}", method = RequestMethod.GET)
 	public PageTO<ReplyVO> list(@PathVariable("bnum") int bnum, 
 					@PathVariable("curPage") int curPage) {
@@ -65,7 +65,7 @@ public class ReplyController {
 		
 		return to;
 	}
-	
+	//댓글 입력
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String insert(@RequestBody Map<String, Object> map) {
 		
