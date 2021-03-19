@@ -18,7 +18,7 @@ alter table cart add price number;
 -- Test 장바구니 데이터 입력
 insert into cart (cartNo, memberNo, sellboardNo, amount, aPrice, price) values ('1', '1001', '1001', '2', '18000', '9000')
 
-select * from cart 
+select * from sell
 delete from cart
 
 -- 결제 테이블
@@ -59,7 +59,12 @@ regdate date default sysdate,
 constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
 on delete cascade
 )
+<<<<<<< HEAD
+
+drop table member
+=======
 select * from attach
+>>>>>>> main
 -- 회원 정보 
 create table member(
 mnum number(6) primary key,

@@ -44,6 +44,7 @@
 			<button class="btn btn-danger btn-md goSales" type="button">매출</button>
 		</a>
 <!-- 마이페이지 버튼 -->		
+
 		<a href="/mypage/mypage"><button class="btn btn-primary btn-md" type="button">
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 		 	 마이페이지

@@ -1,5 +1,6 @@
 package kr.co.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,17 +17,7 @@ import kr.co.repository.MyPageDAO;
 public class MyPageServiceImpl implements MyPageService{
 	@Inject
 	private MyPageDAO dao;
-	@Override
-	public MemberVO updateUI(int mnum) {
-		// TODO Auto-generated method stub
-		MemberVO vo =dao.updateUI(mnum);
-		return vo;
-	}
-	@Override
-	public void update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		dao.update(vo);
-	}
+
 	@Override
 	public List<SellVO> list(int sellnum) {
 		// TODO Auto-generated method stub
@@ -73,6 +64,11 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		
 		return dao.chart_year();
+	}
+	@Override
+	public void allDelte(int mnum) {
+		// TODO Auto-generated method stub
+		dao.allDelete(mnum);
 	}
 
 

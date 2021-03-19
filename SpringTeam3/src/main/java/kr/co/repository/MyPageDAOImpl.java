@@ -23,17 +23,6 @@ public class MyPageDAOImpl implements MyPageDAO{
 	
 	private final String NS = "kr.co.mypage";
 	
-	@Override
-	public MemberVO updateUI(int mnum) {
-		// TODO Auto-generated method stub
-		return sqlsession.selectOne(NS+".updateUI", mnum);
-	}
-
-	@Override
-	public void update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		sqlsession.update(NS+".update", vo);
-	}
 
 	@Override
 	public List<SellVO> list(int sellnum) {
@@ -74,6 +63,12 @@ public class MyPageDAOImpl implements MyPageDAO{
 	public List<TotalVO> chart_year() {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(NS+".chart_year");
+	}
+
+	@Override
+	public void allDelete(int mnum) {
+		// TODO Auto-generated method stub
+		sqlsession.update(NS+".allDelete", mnum);
 	}
 
 	
