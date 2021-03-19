@@ -43,6 +43,10 @@
 		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/mypage/sales">
 			<button class="btn btn-danger btn-md goSales" type="button">매출</button>
 		</a>
+<!-- 판매글등록 버튼-->
+		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/insert">
+			<button class="btn btn-primary">판매글등록</button>
+		</a>
 <!-- 마이페이지 버튼 -->		
 
 		<a href="/mypage/mypage"><button class="btn btn-primary btn-md" type="button">
