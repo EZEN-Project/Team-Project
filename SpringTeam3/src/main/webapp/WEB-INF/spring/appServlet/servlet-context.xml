@@ -48,6 +48,7 @@
 		<interceptor>
 			<mapping path="/member/read"/>
 			<mapping path="/member/update"/>
+			<mapping path="/cart/**"/>
 			<mapping path="/cart/insert"/>
 			<mapping path="/cart/list"/>
 			<mapping path="/board/insert"/>

@@ -29,6 +29,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 			
 			if(request.getMethod().equalsIgnoreCase("GET")) { // GET방식일 때만 세션에 uri와 쿼리 저장
 				session.setAttribute("dest", uri+query);
+			}else if(request.getMethod().equalsIgnoreCase("POST")) { // post방식일 때 세션에 이전 uri저장
+				String before= request.getHeader("before");
+				System.out.println(before);/////////
+				session.setAttribute("dest", before);
 			}
 			// 로그인 안돼있을 때 -> 로그인 해라
 			response.sendRedirect("/member/login");

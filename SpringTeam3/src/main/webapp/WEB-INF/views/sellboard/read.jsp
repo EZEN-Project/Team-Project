@@ -98,11 +98,11 @@
 		$("#read_btn_cartInsert").click(function() {
 			var name ='${login.name}';
 			console.log(name);
-			if(name == ""){
+/* 			if(name == ""){
 				alert("로그인 화면으로 이동합니다.");
-				location.assign("/member/login");
+				location.assign("/cart");
 				return;
-			}
+			} */
 			var amount = $("#amount").val();
 			var bcount = ${vo.bcount};
 			if(amount > bcount){
