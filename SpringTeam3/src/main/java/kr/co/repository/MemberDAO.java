@@ -18,7 +18,9 @@ public interface MemberDAO {
 	int updatePoint(int point, String memo, int mnum);
 	
 	void updateMType(MemberVO vo);
+	MemberVO readMember(String id);
 
-	
+	int updatePw(MemberVO vo);
+	String findid(String email) throws Exception;
 
 }

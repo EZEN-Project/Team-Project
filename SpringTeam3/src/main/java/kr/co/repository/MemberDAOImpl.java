@@ -67,4 +67,23 @@ public class MemberDAOImpl implements MemberDAO{
 		
 	}
 
+	@Override
+	public MemberVO readMember(String id) {
+		// TODO Auto-generated method stub
+		MemberVO vo = sqlSession.selectOne(NS+".readMember", id); //괄호안의 물음표를 콤마뒤에 쓰는거임
+		return vo;
+	}
+
+	@Override
+	public int updatePw(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update(NS+".updatePw", vo);
+	}
+	@Override
+	public String findid(String email) throws Exception{
+		return sqlSession.selectOne(NS+".findid", email);
+	}
+
+
+
 }

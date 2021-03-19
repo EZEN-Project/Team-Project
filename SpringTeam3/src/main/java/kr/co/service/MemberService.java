@@ -1,5 +1,7 @@
 package kr.co.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import kr.co.domain.LoginDTO;
 import kr.co.domain.MemberVO;
 
@@ -20,4 +22,8 @@ public interface MemberService {
 	int addPoint(int point, int mnum, String memo);
 
 	int getPoint(int mnum);
+	void sendEmail(MemberVO vo, String div) throws Exception;
+	void findPw(HttpServletResponse response, MemberVO member)throws Exception;
+	MemberVO readMember(String id);
+	String findid(HttpServletResponse response, String email) throws Exception;
 }
