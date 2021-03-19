@@ -95,7 +95,7 @@ public class MemberViewController {
 			 session.removeAttribute("login"); 
 		 }
 
-		 return "/";
+		 return "redicrect:/";
 
 	}
 	

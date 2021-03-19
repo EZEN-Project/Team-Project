@@ -1,8 +1,12 @@
 package kr.co.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -13,12 +17,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import kr.co.domain.MemberVO;
 import kr.co.domain.SellBoardVO;
 import kr.co.service.SellBoardService;
 import kr.co.util.FileUploadDownloadUtils;
@@ -35,7 +42,14 @@ public class SellBoardController {
 	private String uploadPath;
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public void insert() {
+	public String insert(HttpSession session) {
+		MemberVO memberVO =(MemberVO) session.getAttribute("login");
+		
+		if (memberVO.getmType() == 1004) {
+			return "/sellboard/insert";
+		}else {
+			return "redirect:/member/login";
+		}
 		
 	}
 	
@@ -48,20 +62,26 @@ public class SellBoardController {
 	}
 	
 	@RequestMapping(value = "/update/{bnum}", method = RequestMethod.GET)
-	public String update(@PathVariable("bnum") int bnum, Model model) {
-		SellBoardVO vo = sellboardService.updateUI(bnum);
-		model.addAttribute("vo", vo);
+	public String update(@PathVariable("bnum") int bnum, Model model,HttpSession session) {
+		MemberVO memberVO =(MemberVO) session.getAttribute("login");
 		
-		return "/sellboard/update";
+		if (memberVO.getmType() == 1004) {
+			SellBoardVO vo = sellboardService.updateUI(bnum);
+			model.addAttribute("vo", vo);
+			
+			return "/sellboard/update";
+		}else {
+			return "/member/login";
+		}
+		
+
 	}
 	
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(SellBoardVO vo) {
 		
-		sellboardService.update(vo);
-		
-		
+		sellboardService.update(vo);		
 		
 		return "redirect:/sellboard/read/"+vo.getBnum();
 	}
@@ -73,6 +93,29 @@ public class SellBoardController {
 		
 		return "redirect:/sellboard/list";
 	}
+	
+	
+	
+	@RequestMapping(value = "/read/{bnum}", method = RequestMethod.GET)
+	public String read(@PathVariable("bnum")int bnum, Model model) {
+		SellBoardVO vo = sellboardService.read(bnum);
+		model.addAttribute("vo", vo);
+		
+		
+		return "sellboard/read";
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model) {
+
+		List<SellBoardVO> list = sellboardService.list();
+		model.addAttribute("list", list);
+		
+		return "sellboard/list";
+	}
+	
+
+
 	
 	@ResponseBody
 	@RequestMapping(value = "/upload", 
@@ -88,22 +131,13 @@ public class SellBoardController {
 		String fileUploadPath = FileUploadDownloadUtils
 								.upload(file, uploadPath);
 		
-		System.out.println(uploadPath);
+		
 		return fileUploadPath;
 	}
 	
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public void upload() {
 		
-	}
-	
-	@RequestMapping(value = "/read/{bnum}")
-	public String read(@PathVariable("bnum")int bnum, Model model) {
-		SellBoardVO vo = sellboardService.read(bnum);
-		model.addAttribute("vo", vo);
-		
-		
-		return "sellboard/read";
 	}
 	
 	
@@ -161,6 +195,8 @@ public class SellBoardController {
 		return sellboardService.getAttaches(bnum);
 	}
 	
+	
+	
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
 		
@@ -183,5 +219,40 @@ public class SellBoardController {
 	}
 	
 	
+	   @ResponseBody
+	   @RequestMapping(value = "/deleteFile", method = RequestMethod.POST)
+	   public String deleteFile(String fileName, HttpSession session) {
+		   String result = null;
+		   
+		  fileName =  fileName.replace('/', File.separatorChar);
+		  
+		String uploadPath = session.getServletContext().getRealPath(this.uploadPath);
+		
+		int idx = fileName.lastIndexOf(".")+1;
+		String type = fileName.substring(idx);
+		MediaType mType = MediaUtils.getMediaType(type);
+		
+		boolean exe0 =true;
+		
+		if (mType != null) {
+			String pre = fileName.substring(0,12);
+			String suf = fileName.substring(14);
+			
+			String oriName = pre + suf;
+			File f2 = new File(uploadPath+oriName);
+			exe0 = f2.delete();
+		}
+		  
+		  File f = new File(uploadPath+fileName);
+		  boolean exe1 = f.delete();
+		  
+		  if (exe1 && exe0) {
+			result = "o";
+		}else {
+			result = "x";
+		}
+		   
+		  return result;
+	}
 	
 }
