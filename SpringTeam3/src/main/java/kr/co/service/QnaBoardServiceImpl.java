@@ -31,12 +31,14 @@ public class QnaBoardServiceImpl implements QnABoardService {
 	}
 
 	@Override
+	@Transactional
 	public void insert(QnABoardVO vo) {
 		// TODO Auto-generated method stub
 		dao.insert(vo);
 	}
 
 	@Override
+	@Transactional
 	public void delete(int bnum) {
 		// TODO Auto-generated method stub
 		rdao.deleteReplies(bnum);
@@ -57,6 +59,7 @@ public class QnaBoardServiceImpl implements QnABoardService {
 	}
 
 	@Override
+	@Transactional
 	public void update(QnABoardVO vo) {
 		// TODO Auto-generated method stub
 		dao.update(vo);

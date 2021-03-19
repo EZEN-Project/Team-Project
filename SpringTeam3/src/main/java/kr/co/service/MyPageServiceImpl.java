@@ -1,14 +1,13 @@
 package kr.co.service;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-
-import kr.co.domain.MemberVO;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.domain.SellVO;
 import kr.co.domain.TotalVO;
@@ -24,6 +23,7 @@ public class MyPageServiceImpl implements MyPageService{
 		return dao.list(sellnum);
 	}
 	@Override
+	@Transactional
 	public void delete(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		dao.delete(map);
@@ -66,6 +66,7 @@ public class MyPageServiceImpl implements MyPageService{
 		return dao.chart_year();
 	}
 	@Override
+	@Transactional
 	public void allDelte(int mnum) {
 		// TODO Auto-generated method stub
 		dao.allDelete(mnum);
