@@ -19,60 +19,41 @@
  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
-	hr{
-		color: black;
-		background-color: black;
-		height: 1px;
-		width: 1150px;
-	}
-	#btn,h1 {
-		text-align: center;
+.mybtn{
+  width:150px;
+  height:40px;
+  padding:0;
+  display:inline; 
+  border-radius: 4px; 
+  background: #212529;
+  color: #fff;
+  margin-top: 20px;
+  border: solid 2px #212529; 
+  transition: all 0.5s ease-in-out 0s;
+}
+.mybtn:hover .mybtn:focus {
+  background: white;
+  color: #212529;
+  text-decoration: none;
 }
 </style>
 </head>
 <body>
-<!-- 로그인&로그아웃 -->
-    <div class="container-fluid">
-        <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
-    </div>
-    <hr>
-<div class="container">
-	<div class="row">
-		<h1 class="jumbotron">마이페이지</h1>
+<div class="w3-content w3-container w3-margin-top">
+		<div class="w3-container w3-card-4">
+			<div class="w3-center w3-large w3-margin-top">
+				<h3>아이디 찾기 검색결과</h3>
+			</div>
+			<div>
+				<h5>
+					${ id }
+				</h5>
+				<p class="w3-center">
+					<a href="/member/login"><button type="button" id=loginBtn class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">Login</button></a>
+					<button type="button" onclick="history.go(-1);" class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round">Cancel</button>
+				</p>
+			</div>
+		</div>
 	</div>
-	<hr>
-	<c:choose>
-		
-		<c:otherwise>
-	<div id="btn" class="row">
-		<button id="update" type="button" class="btn btn-primary btn-lg">회원정보 수정</button>
-		<button id="list" type="button" class="btn btn-info btn-lg">결제내역</button>
-		
-	</div>
-		</c:otherwise>
-	</c:choose>
-	
-	<hr>
-	
-</div>
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	
-	$("#update").click(function(event) {
-		
-		window.open("/member/read");
-	});
-	$("#list").click(function(event) {
-		
-		window.open("/mypage/list");
-	});
-
-});
-
-</script>
-
-
-
 </body>
 </html>

@@ -20,6 +20,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
+        <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
+       	
+    </div>
+    <hr>
   <div class="container">
       <div class="row">
          <h1 class="jumbotron" style="text-align: center;">게시글 수정</h1>

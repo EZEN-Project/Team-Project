@@ -30,7 +30,7 @@
 <body>
 <!-- 로그인&로그아웃 -->
     <div class="container-fluid">
-        <jsp:include page="/WEB-INF/views/header/adminlistLoginHeader.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
        	
     </div>
     <hr>
@@ -38,7 +38,7 @@
 		<div class="row">
 			<h1 class="jumbotron">글쓰기 화면</h1>
 		</div>
-		<jsp:include page="/WEB-INF/views/header/mainHeader.jsp"></jsp:include>
+		<hr>
 		<!--class="row"  -->
 
 		<div class="row">

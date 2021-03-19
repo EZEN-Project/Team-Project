@@ -70,7 +70,7 @@
 	                  dataType : "text",
 	                  success : function(result) {
 	                	  if (result =="o") {
-	                		  backEle.parent().remove();
+	                		  backEle.parent().parent().parent().remove();
 	                		 
 						}
 	                	  
