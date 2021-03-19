@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
-import kr.co.domain.MemberVO;
 import kr.co.domain.PageTO;
 import kr.co.domain.SellVO;
 import kr.co.domain.TotalVO;

@@ -59,12 +59,9 @@ regdate date default sysdate,
 constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
 on delete cascade
 )
-<<<<<<< HEAD
 
-drop table member
-=======
 select * from attach
->>>>>>> main
+
 -- 회원 정보 
 create table member(
 mnum number(6) primary key,
@@ -85,8 +82,20 @@ select * from member
 
 update member set mType= 1004 where id='master'
 
------------------------
+-- qa게시판
+create table qboard(
+bnum number(6) primary key,
+title varchar2(300) not null,
+writer varchar2(300) not null,
+content varchar2(300) not null,
+veiwcnt number(6) default 0,
+regdate DATE DEFAULT SYSDATE,
+updatedate DATE DEFAULT SYSDATE,
+replycnt number default 0,
+viewcnt number default 0
+)
 
+-----------------------
 
 
 

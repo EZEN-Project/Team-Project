@@ -1,14 +1,11 @@
 package kr.co.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-
-import kr.co.domain.MemberVO;
 
 import kr.co.domain.SellVO;
 import kr.co.domain.TotalVO;
