@@ -1,6 +1,7 @@
 package kr.co.service;
 
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -123,7 +124,7 @@ public class MemberServiceImpl implements MemberService{
 	//비밀번호찾기
 
 	@Override
-	public void findPw(HttpServletResponse response, MemberVO vo) throws Exception {
+	public void tempPw(HttpServletResponse response, MemberVO vo) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		MemberVO ck = memberDAO.readMember(vo.getId());
 		PrintWriter out = response.getWriter();
@@ -144,7 +145,7 @@ public class MemberServiceImpl implements MemberService{
 			}
 			vo.setPw(pw);
 			// 비밀번호 변경
-			memberDAO.updatePw(vo);
+			memberDAO.tempPw(vo);
 			// 비밀번호 변경 메일 발송
 			sendEmail(vo, "findpw");
 
@@ -185,5 +186,11 @@ public class MemberServiceImpl implements MemberService{
 		} else {
 			return id;
 		}
+	}
+
+	@Override
+	public void updatepw(Map<String, Object> map) {
+		memberDAO.updatepw(map);
+		
 	}
 }

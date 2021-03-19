@@ -1,5 +1,5 @@
 
-
+select * from member
 -- 장바구니 테이블 
 create table cart(
 cartNo number primary key,
@@ -83,7 +83,7 @@ memo varchar2(100)
 )
 select * from member
 
-update member set mType= 1004 where id='master'
+update member set mType= 1004 where id='rmh63'
 
 -----------------------
 

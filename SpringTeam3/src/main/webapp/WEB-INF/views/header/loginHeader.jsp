@@ -60,6 +60,7 @@
 			<li><a href="/">HOME</a></li>
 		  	<li><a href="/sellboard/list">쇼핑</a></li>
 			<li class="${empty login ? 'hidden' : ''}"><a href="/mypage/list">결제내역</a></li>
+      		<li><a href="/qaboard/list">Q&A</a></li>
 		</ol>
 
 	</div>

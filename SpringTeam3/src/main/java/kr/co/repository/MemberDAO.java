@@ -1,5 +1,7 @@
 package kr.co.repository;
 
+import java.util.Map;
+
 import kr.co.domain.LoginDTO;
 import kr.co.domain.MemberVO;
 
@@ -20,7 +22,9 @@ public interface MemberDAO {
 	void updateMType(MemberVO vo);
 	MemberVO readMember(String id);
 
-	int updatePw(MemberVO vo);
+	int tempPw(MemberVO vo);
 	String findid(String email) throws Exception;
 
+	void updatepw(Map<String, Object> map);
+	
 }

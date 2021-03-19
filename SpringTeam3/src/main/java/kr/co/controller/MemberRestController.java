@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.domain.MemberVO;
@@ -20,7 +22,14 @@ public class MemberRestController {
 	
 	@Inject
 	private MemberService memberService;
-
+	//비밀번호 변경
+	@RequestMapping(value = "/update_pw", method = RequestMethod.PUT)
+	public void updatepw(@RequestBody Map<String, Object> map) {
+	
+		memberService.updatepw(map);
+		
+	}
+	
 	// id중복검사
 	@RequestMapping(value = "/idcheck/{id}", method = RequestMethod.GET)
 	public Map<String, String> idcheck(@PathVariable("id") String id) {

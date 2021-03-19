@@ -42,7 +42,7 @@
 	</div>
 	<hr>
 	<c:choose>
-		<c:when test="${vo.mType}">
+		<c:when test="${vo.mType == 1004}">
 	<div id="btn" class="row">
 		<button id="update" type="button" class="btn btn-primary btn-lg">회원정보 수정</button>
 		<button id="list" type="button" class="btn btn-info btn-lg">결제내역</button>

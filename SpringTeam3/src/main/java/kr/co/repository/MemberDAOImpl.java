@@ -1,5 +1,7 @@
 package kr.co.repository;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -75,14 +77,23 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public int updatePw(MemberVO vo) {
+	public int tempPw(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.update(NS+".updatePw", vo);
+		return sqlSession.update(NS+".tempPw", vo);
 	}
 	@Override
 	public String findid(String email) throws Exception{
 		return sqlSession.selectOne(NS+".findid", email);
 	}
+
+	@Override
+	public void updatepw(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+		sqlSession.update(NS+".updatepw", map);
+	}
+
+	
 
 
 

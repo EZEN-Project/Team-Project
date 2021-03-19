@@ -39,18 +39,7 @@
 		<h1 class="jumbotron">메인 페이지</h1>
 	</div>
 	<hr>
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-      <div class="navbar-header">
-
-      <a class="navbar-brand" href="/sellboard/list">상품</a>
-      <a class="navbar-brand" href="/qaboard/list">Q&A</a>
- 
-    </div>
-
-
-  </div><!-- /.container-fluid -->
-</nav>
+	
 <!-- carousel를 구성할 영역 설정 -->
 <div style="width: 800px; padding-left: 350px;">
 <!-- carousel를 사용하기 위해서는 class에 carousel와 slide 설정한다. -->

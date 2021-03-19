@@ -34,18 +34,7 @@
       <div class="row">
          <h1 class="jumbotron" style="text-align: center;">글 자세히 보기</h1>
       </div>
-      <nav class="navbar navbar-default">
-
-      <div class="navbar-header">
-
-      <a class="navbar-brand" href="/sellboard/list">상품</a>
-      <a class="navbar-brand" href="/qaboard/list">Q&A</a>
- 
-    </div>
-
-
-
-</nav>
+     
       <div class="row">
          <div class="form-group">
             <label for="title">제목</label>

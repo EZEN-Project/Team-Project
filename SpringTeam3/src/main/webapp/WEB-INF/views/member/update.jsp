@@ -44,7 +44,7 @@
 					    </div><!-- /input-group -->
 					  </div><!-- /.col-lg-6 -->
 				  </div><!-- /.form-group -->
-				  
+				  <input id="pw_update" value="비밀번호 변경" type="button" class="btn btn-primary" style="margin-bottom: 10px;">
 				  <div class="form-group">
 					<div class=".col-xs-12 .col-md-8">
 						<div class="input-group">
@@ -170,6 +170,7 @@
 
   	<script type="text/javascript">
 		$(document).ready(function(){
+			
 			$("#member_update_btn_delete").click(function(e) {
 				e.preventDefault();
 				var password= prompt("탈퇴확인: 비밀번호를 입력하세요");
@@ -184,6 +185,28 @@
 				$("#form").submit();
 				
 				
+			});
+			$("#pw_update").click(function() {
+				var id = "${login.id}";
+				var pw = prompt("변경할 비밀번호를 입력해주세요");
+				  $.ajax({
+	                  type : 'put',
+	                  url : "/member/update_pw",
+	                  headers : {
+	                     "Content-Type" : "application/json",
+	                     "X-HTTP-Method-Override" : "put"
+	                  },
+	                  data : JSON.stringify({
+	                	 pw : pw,
+	                	 id : id
+	                     
+	                  }),
+	                  dataType : "text",
+	                  success : function(result) {
+	                	  alert("비밀번호를 변경하였습니다.");
+	                  }
+	          
+						});
 			});
 			
 			

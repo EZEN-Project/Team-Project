@@ -27,7 +27,7 @@
 <body>
 <!-- 로그인&로그아웃 -->
     <div class="container-fluid">
-        <jsp:include page="/WEB-INF/views/header/adminlistLoginHeader.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
        	
     </div>
     <hr>

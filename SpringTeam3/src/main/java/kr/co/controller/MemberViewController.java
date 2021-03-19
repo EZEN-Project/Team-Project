@@ -21,6 +21,11 @@ public class MemberViewController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	
+	
+	
+	
 	// 아이디 찾기
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
 	public String findIdGET(HttpServletResponse response, @RequestParam
@@ -39,7 +44,7 @@ public class MemberViewController {
 
 	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
 	public void findPwPOST(@ModelAttribute MemberVO member, HttpServletResponse response) throws Exception{
-		memberService.findPw(response, member);
+		memberService.tempPw(response, member);
 	}
 
 	//회원가입
@@ -118,7 +123,7 @@ public class MemberViewController {
 			 session.removeAttribute("login"); 
 		 }
 
-		 return "/";
+		 return "redirect:/";
 
 	}
 	
