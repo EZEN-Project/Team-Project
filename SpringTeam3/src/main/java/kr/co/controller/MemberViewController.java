@@ -1,5 +1,6 @@
 package kr.co.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -97,7 +98,12 @@ public class MemberViewController {
 	
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void login() {
+	public void login(HttpServletRequest request) {
+		// 로그인 전에 있던 페이지 세션에 저장
+		String referer =request.getHeader("referer");
+		System.out.println("referer "+referer);//////
+		HttpSession session = request.getSession();
+		session.setAttribute("referer", referer);
 	}
 	//로그인
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
@@ -122,9 +128,7 @@ public class MemberViewController {
 		 if(login != null) {
 			 session.removeAttribute("login"); 
 		 }
-
 		 return "redirect:/";
-
 	}
 	
 	

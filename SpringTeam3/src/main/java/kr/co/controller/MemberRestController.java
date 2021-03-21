@@ -2,15 +2,12 @@ package kr.co.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.domain.MemberVO;
@@ -43,12 +40,13 @@ public class MemberRestController {
 	// 포인트 충전
 	@RequestMapping(value = "/addPoint/{point}", method = RequestMethod.GET)
 	public Map<String, Integer> addPoint(@PathVariable("point") int point, HttpSession session) {
+		Map<String, Integer> map = new HashMap<>();
 		
 		MemberVO vo = (MemberVO) session.getAttribute("login");
 		int mnum = vo.getMnum();
 		String memo = "포인트 충전";
 		int successNpoint = memberService.addPoint(point, mnum, memo);
-		Map<String, Integer> map = new HashMap<>();
+		
 		map.put("point", successNpoint);
 		return map;
 	}
