@@ -82,8 +82,20 @@ select * from member
 
 update member set mType= 1004 where id='rmh63'
 
------------------------
+-- qa게시판
+create table qboard(
+bnum number(6) primary key,
+title varchar2(300) not null,
+writer varchar2(300) not null,
+content varchar2(300) not null,
+veiwcnt number(6) default 0,
+regdate DATE DEFAULT SYSDATE,
+updatedate DATE DEFAULT SYSDATE,
+replycnt number default 0,
+viewcnt number default 0
+)
 
+-----------------------
 
 
 
