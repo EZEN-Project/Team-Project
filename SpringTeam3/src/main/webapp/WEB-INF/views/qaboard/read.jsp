@@ -20,6 +20,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
 <!-- 로그인&로그아웃 -->
     <div class="container-fluid">
         <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
@@ -34,18 +35,7 @@
       <div class="row">
          <h1 class="jumbotron" style="text-align: center;">글 자세히 보기</h1>
       </div>
-      <nav class="navbar navbar-default">
-
-      <div class="navbar-header">
-
-      <a class="navbar-brand" href="/sellboard/list">상품</a>
-      <a class="navbar-brand" href="/qaboard/list">Q&A</a>
- 
-    </div>
-
-
-
-</nav>
+     
       <div class="row">
          <div class="form-group">
             <label for="title">제목</label>
@@ -70,6 +60,15 @@
          
       </div><!--class=row  -->
       </c:when>
+      <c:when test="${memberVO.mType == 1004}">
+      <div class="row">
+     
+         <button id="read_btn_delete" class="btn btn-danger">삭제</button>
+         <button id="reply_form" class="btn">댓글</button>
+         <button id="read_btn_list" class="btn btn-info">목록</button>
+         
+      </div><!--class=row  -->
+      </c:when>
       <c:otherwise>
     	 <button id="read_btn_list" class="btn btn-info">목록</button>
       
@@ -79,7 +78,7 @@
          <div class="collapse" id="myCollapse">
            <div class="form-group">
              <label for="replyer">작성자</label>
-             <input class="form-control" id="replyer" name="replyer" value="${vo.writer}">
+             <input class="form-control" id="replyer" name="replyer" value="${vo.writer}" readonly="readonly">
            </div>
            
            <div class="form-group">
@@ -281,11 +280,11 @@
                 var date = d.getDate() < 10 ? '0'+ d.getDate() : d.getDate();
                 
                 var dateStr = year+"/"+month+"/"+date;
-                console.log(dateStr);
+                
                 if (${login.id == vo.writer}) { 
                 	str += '<div class="panel panel-primary">'+
                     '<div class="panel-heading">'+
-                    '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
+                    '<span>글번호: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
                     '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
                    '</div>'+
                    '<div class="panel-body">'+
@@ -295,10 +294,22 @@
                    '</div>'+
                  '</div>';
 					
-				}else {
+				}else if (${memberVO.mType == 1004}) {
+					str += '<div class="panel panel-primary">'+
+                    '<div class="panel-heading">'+
+                    '<span>글번호: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
+                    '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
+                   '</div>'+
+                   '<div class="panel-body">'+
+                     '<p>'+obj["replyText"]+'</p>'+
+                     '<button data-rno="'+obj["rno"]+'"class="btn btn-danger btn-xs btn-delete">삭제</button>'+
+                   '</div>'+
+                 '</div>';					
+				}
+                else {
 					 str += '<div class="panel panel-primary">'+
 	                  '<div class="panel-heading">'+
-	                   '<span>rno: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
+	                   '<span>글번호: '+obj["rno"]+', <span class="glyphicon glyphicon-user" aria-hidden="true"></span>작성자: '+obj["replyer"]+'</span>'+
 	                   '<span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>최종 수정일: '+dateStr+' </span>'+
 	                  '</div>'+
 	                  '<div class="panel-body">'+

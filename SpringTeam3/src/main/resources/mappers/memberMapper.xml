@@ -29,6 +29,18 @@
  	<update id="updateMType">
   		update member set mType = #{mType}, memo=#{memo}, updateDate=sysdate where mnum=#{mnum}
   	</update>
-
-
+	<select id="readMember" resultType="kr.co.domain.MemberVO">
+		select *
+		from member
+		where id=#{id}
+	</select>
+	<update id="tempPw" >
+	update member set pw = #{pw} where id = #{id}
+	</update>
+	<select id="findid" parameterType="String" resultType="String">
+		select id from member where email = #{email}
+	</select>
+	<update id="updatepw" >
+	update member set pw = #{pw} where id = #{id}
+	</update>
   </mapper>

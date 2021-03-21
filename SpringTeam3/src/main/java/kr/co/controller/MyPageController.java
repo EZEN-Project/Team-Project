@@ -31,7 +31,9 @@ public class MyPageController {
 		//매출내역 페이지로 이동
 		@RequestMapping(value = "/sales", method = RequestMethod.GET)
 		public String sales(TotalVO vo,HttpSession session, Model model) {
+			
 			MemberVO memberVO =(MemberVO) session.getAttribute("login");
+	
 			model.addAttribute("vo", memberVO);
 			if (memberVO.getmType() == 1004) {
 				return "mypage/sales";
@@ -46,8 +48,10 @@ public class MyPageController {
 		
 		//마이페이지로 이동
 		@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-		public String mypage() {
-		
+		public String mypage(Model model, HttpSession session) {
+			MemberVO memberVO =(MemberVO) session.getAttribute("login");
+			
+			model.addAttribute("vo", memberVO);
 			
 			return "mypage/mypage";
 		}

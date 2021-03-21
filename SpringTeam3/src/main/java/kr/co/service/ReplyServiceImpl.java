@@ -28,6 +28,7 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
+	@Transactional
 	public int update(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return dao.update(map);
