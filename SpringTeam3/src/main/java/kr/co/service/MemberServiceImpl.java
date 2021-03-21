@@ -62,8 +62,12 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int addPoint(int point, int mnum, String memo) {
 		MemberVO vo = memberDAO.readM(mnum);
+		int success =-1;
 		int points = point + vo.getPoint();
-		int success= memberDAO.updatePoint(points, memo, mnum);
+		if(points<0 || points >200000000 || point<=0) {
+			return -2;
+		}
+		success= memberDAO.updatePoint(points, memo, mnum);
 		if(success ==1) {
 			return points;
 		}

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import kr.co.domain.MemberVO;
 import kr.co.domain.SellBoardVO;
 import kr.co.service.SellBoardService;
@@ -43,7 +45,7 @@ public class SellBoardController {
 		if (memberVO.getmType() == 1004) {
 			return "/sellboard/insert";
 		}else {
-			return "redirect:/member/login";
+			return "/member/login";
 		}
 		
 	}
@@ -201,7 +203,6 @@ public class SellBoardController {
 	public void uploadForm(MultipartHttpServletRequest request,
 			HttpSession session) throws Exception {
 		
-		request.getParameter("id");
 		MultipartFile file = request.getFile("file");
 		
 		String uploadPath = session.getServletContext().getRealPath(this.uploadPath);
