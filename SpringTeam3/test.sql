@@ -94,7 +94,18 @@ updatedate DATE DEFAULT SYSDATE,
 replycnt number default 0,
 viewcnt number default 0
 )
+  
+-- Q&A 댓글 테이블
+create table qreply(
+rno number(6) primary key,
+bnum number(6),
+replytext varchar2(1000) not null,
+replyer varchar2(30) not null,
+regdate date default sysdate,
+updatedate date default sysdate,
 
+constraint fk_qreply_bnum foreign key(bnum) references qboard(bnum)
+)
 -----------------------
 
 
