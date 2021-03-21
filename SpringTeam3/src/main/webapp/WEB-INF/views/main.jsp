@@ -34,25 +34,17 @@
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				    <c:forEach begin="0" end="${vo.size()}" var="index">
-				    	 <li data-target="#carousel-example-generic" data-slide-to="${index }"></li>
+				    <c:forEach begin="0" end="${vo.size()-1}" var="index">
+				    	 <li data-target="#carousel-example-generic" data-slide-to="${index }" class="${index==0? 'active':'' }"></li>
 				    </c:forEach>
 				    <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
 				  </ol>
 				  
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
-				    <div class="item active">
-				      <a href="/sellboard/read/${vo[0].bnum}"><img style="width:700px; height: 500px;" class="img-responsive displayed" src="/resources/upload${vo[0].content}" alt="..."></a>
-				      <div class="carousel-caption"> 
-				        <h3>${vo[0].title}</h3>
-						<p>${vo[0].price}원</p>
-				      </div>
-				    </div>
-				    <c:forEach items="${vo}" var="vo">
-					    <div class="item" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-					      <a href="/sellboard/read/${vo.bnum}"><img style="width:700px; height: 500px;" src="/resources/upload${vo.content}" alt="..."></a>
+				    <c:forEach items="${vo}" var="vo" varStatus="status">
+					    <div class="item ${status.index ==0? 'active':'' }" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+					      <a href="/sellboard/read/${vo.bnum}"><img style="width:700px; height: 500px;" src="/resources/upload${vo.content}" alt="판매상품 사진"></a>
 					      <div class="carousel-caption">
 					      	<h3>${vo.title}</h3>
 						   	<p>${vo.price}원</p>
