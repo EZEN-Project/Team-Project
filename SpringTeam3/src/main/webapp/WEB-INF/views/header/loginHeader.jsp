@@ -17,7 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<script src="/resources/js/cart.js?vs=0.38" type="text/javascript"></script>
+<script src="/resources/js/cart.js?vs=0.39" type="text/javascript"></script>
 
 </head>
 <body>
@@ -26,7 +26,8 @@
 
 		<c:choose>
 			<c:when test="${empty login}">
-				<a href="/member/login">로그인</a>
+				<a href="/member/login">로그인</a>	/		
+				<a href="/member/insert">회원가입</a>
 			</c:when>
 			<c:otherwise>
 				<span><a href="/member/read">${login.name}</a> 님, 환영합니다.</span>

@@ -211,13 +211,13 @@ function addPoint(){
 	var point = prompt("충전 포인트입력");
 	
 	if(!isNaN(point)){	// 숫자입력값인지 검사
-		if(Number(point)<=0 || Number(point)>2000000000){
-			alert("충전 실패: 충전 가능 포인트는 0 ~ 20억 입니다.");
+		if(Number(point)<=99 || Number(point)>100000000){
+			alert("충전 실패: 충전 가능 포인트는 100 ~ 1억 입니다.");
 			return;
 		}
 		$.getJSON("/member/addPoint/"+ point, function(map){
 			if(Number(map.point)<0){
-				alert("충전 실패: 보유 가능 포인트는 0 ~ 2000000000 입니다.");
+				alert("충전 실패: 보유 가능 포인트는 0 ~ 2억 입니다.");
 				return;
 			}
 			alert("현재 포인트: "+map.point);
