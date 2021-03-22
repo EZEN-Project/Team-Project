@@ -241,7 +241,13 @@
        
        
        $("#read_btn_delete").click(function() {
-          $("form").submit();
+    	   var yesOrNo = confirm("정말로 삭제하겠습니까?");
+    	   if (yesOrNo) {
+    		   $("form").submit();
+		   }else {
+			   alert("삭제가 취소되었습니다.")
+		   };
+    	  
        });
        
        
@@ -262,7 +268,6 @@
        
        
        function replyInputReset(){
-          $("#replyer").val("");
           $("#replyText").val("");
        }
        

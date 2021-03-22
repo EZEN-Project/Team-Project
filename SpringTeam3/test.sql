@@ -18,7 +18,7 @@ alter table cart add price number;
 -- Test 장바구니 데이터 입력
 insert into cart (cartNo, memberNo, sellboardNo, amount, aPrice, price) values ('1', '1001', '1001', '2', '18000', '9000')
 
-select * from sell
+select * from member
 delete from cart
 
 -- 결제 테이블
