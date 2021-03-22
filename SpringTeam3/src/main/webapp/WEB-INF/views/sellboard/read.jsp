@@ -171,28 +171,6 @@
 	        	  location.href='/sellboard/list';
 	           });
 	          
-	  		// 장바구니 상품 입력
-	  		$("#read_btn_cartInsert").click(function() {
-	  			var name ='${login.name}';
-	  			console.log(name);
-	  			if(name == ""){
-	  				alert("로그인 화면으로 이동합니다.");
-	  				location.assign("/member/login");
-	  				return;
-	  			}
-	  			var amount = $("#amount").val();
-	  			var bcount = ${vo.bcount};
-	  			if(amount > bcount){
-	  				alert("최대 구매개수는 판매 개수를 넘을수 없습니다.");
-	  				$("#amount").val(1);
-	  				return;
-	  			}
-	  			var price = ${vo.price};
-	  			cartInsert(bnum, amount, price);
-	  			setTimeout(function() {
-	  					getCartCount();
-	  				}, 1000);
-	  		});
 	});
 	
 	

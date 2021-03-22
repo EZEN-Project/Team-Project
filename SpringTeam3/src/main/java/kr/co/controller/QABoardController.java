@@ -111,17 +111,21 @@ public class QABoardController {
 		int amount = boardService.getAmount();
 		to.setAmount(amount);
 		
+		if (curPage > to.getTotalPage()) {
+			return "redirect:/qaboard/list/"+1;
+		}else {
+			List<QnABoardVO> list = boardService.list(curPage);
+			model.addAttribute("list", list);
+			
+			
+			to.setList(list);
+			model.addAttribute("to", to);
+			
+			
+			
+			return "qaboard/list";
+		}
 		
-		List<QnABoardVO> list = boardService.list(curPage);
-		model.addAttribute("list", list);
-		
-		
-		to.setList(list);
-		model.addAttribute("to", to);
-		
-		
-		
-		return "qaboard/list";
 		
 	}
 }
