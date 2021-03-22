@@ -34,10 +34,10 @@ public class QnaBoardServiceImpl implements QnABoardService {
 	@Transactional
 	public void insert(QnABoardVO vo) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 50; i++) {
+	
 			dao.insert(vo);
 
-		}
+		
 	}
 
 	@Override
