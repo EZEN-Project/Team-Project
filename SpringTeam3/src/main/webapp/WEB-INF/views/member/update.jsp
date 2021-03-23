@@ -189,24 +189,30 @@
 			$("#pw_update").click(function() {
 				var id = "${login.id}";
 				var pw = prompt("변경할 비밀번호를 입력해주세요");
-				  $.ajax({
-	                  type : 'put',
-	                  url : "/member/update_pw",
-	                  headers : {
-	                     "Content-Type" : "application/json",
-	                     "X-HTTP-Method-Override" : "put"
-	                  },
-	                  data : JSON.stringify({
-	                	 pw : pw,
-	                	 id : id
-	                     
-	                  }),
-	                  dataType : "text",
-	                  success : function(result) {
-	                	  alert("비밀번호를 변경하였습니다.");
-	                  }
-	          
-						});
+				if (!pw) {
+					return;
+				}else {
+					 $.ajax({
+		                  type : 'put',
+		                  url : "/member/update_pw",
+		                  headers : {
+		                     "Content-Type" : "application/json",
+		                     "X-HTTP-Method-Override" : "put"
+		                  },
+		                  data : JSON.stringify({
+		                	 pw : pw,
+		                	 id : id
+		                     
+		                  }),
+		                  dataType : "text",
+		                  success : function(result) {
+		                	  alert("비밀번호를 변경하였습니다.");
+		                  }
+		          
+							});
+					
+				}
+				 
 			});
 			
 			
