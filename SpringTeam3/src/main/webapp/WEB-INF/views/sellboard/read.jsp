@@ -72,10 +72,10 @@
 		
 			
 	<div class="row"> <!-- 관리자만 보이는 버튼 -->
-		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/insert">
+		<a class="${login.mType == 1004 ? '' :'hidden' }">
 			<button id="read_btn_update" class="btn btn-warning">수정</button>
 		</a>
-		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/update">
+		<a class="${login.mType == 1004 ? '' :'hidden' }">
 			<button id="read_btn_delete" class="btn btn-danger">삭제</button>
 		</a>
 	</div><!--class=row  --><p>

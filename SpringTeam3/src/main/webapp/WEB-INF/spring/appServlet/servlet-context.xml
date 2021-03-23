@@ -52,16 +52,17 @@
 
 			<mapping path="/member/read"/>
 			<mapping path="/member/update"/>
-
+			
 			<mapping path="/cart/insert"/>
 			<mapping path="/cart/list"/>
-			<mapping path="/mypage/**"/>
-			<mapping path="/board/update"/>
-			<mapping path="/board/delete"/>
 			
 			<mapping path="/sellboard/insert"/>
 			<mapping path="/sellboard/update"/>
-			<mapping path="/sellboard/read"/>
+			<mapping path="/sellboard/delete"/>
+			
+			<mapping path="/mypage/**"/>
+
+			
 			<beans:ref bean="authinterceptor"/>
 		</interceptor>
 		
