@@ -23,7 +23,7 @@
 	<hr>
 
  <div class="container">
- 	<div class="row">
+ 	<div align="center" class="row">
 		<h1 class="jumbotron">메인 페이지</h1>
 	</div>
  	<div class="row">

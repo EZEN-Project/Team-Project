@@ -35,7 +35,7 @@
 		        	  <div class=".col-xs-12 .col-md-8">
 					    <div class="input-group">
 					      <span id="span1" class="input-group-addon">ID</span>
-					     	 <input name="id" id="id" class="form-control" placeholder="id를 입력하세요">
+					     	 <input name="id" id="id" class="form-control" placeholder="id는 영문 숫자 4~12글자 사이로 입력해 주세요">
 					      <span class="input-group-btn">
 					        <button id="btnID" class="btn btn-default" type="button">ID 중복체크</button>
 					      </span>
@@ -74,7 +74,7 @@
 					<div class=".col-xs-12 .col-md-8">
 						<div class="input-group">
 						  <span class="input-group-addon" id="nameSp">이름</span>
-						  <input id="name" name="name" type="text" class="form-control" required placeholder="2~4글자의 한글로 입력하세요" aria-describedby="nameSp">
+						  <input id="name" name="name" type="text" class="form-control" required placeholder="2~6글자의 한글로 입력하세요" aria-describedby="nameSp">
 						</div>
 					</div>
 				</div>
@@ -210,6 +210,7 @@
 				if(!idEng.test(idn) || idn.length != $.trim(idn).length){
 					alert("id는 영문 숫자 4~12글자 사이로 입력해 주세요");
 					$("input[name=id]").select();
+					$("#id").attr("readonly",false);
 					a= false;
 					event.preventDefault();
 					return;
@@ -248,12 +249,13 @@
 					event.preventDefault();
 					return;
 				}else if(!kor.test(namen) || namen.length != $.trim(namen).length){
-					alert("잘못된 이름: 2~4글자의 한글로 입력하세요");
+					alert("잘못된 이름: 2~6글자의 한글로 입력하세요");
 					$("#name").select();
 					event.preventDefault();
 					return;
 				}
-			
+				
+				
 				
 				
 							

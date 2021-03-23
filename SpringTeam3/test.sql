@@ -81,7 +81,8 @@ memo varchar2(100)
 -- 회원정보 name 컬럼 길이 수정(안돼있으면 추가)
 alter table member modify name varchar2(30)
 select * from member
-
+-- 회원정보 name 컬럼 길이 수정(안돼있으면 추가)
+alter table member modify name varchar2(30)
 update member set mType= 1004 where id='rmh63'
 
 -- qa게시판

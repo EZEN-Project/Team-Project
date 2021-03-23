@@ -25,7 +25,7 @@ public class HomeController {
 		
 		for (SellBoardVO sellBoardVO : vo) {
 			String img = sellBoardVO.getContent();
-			
+		
 			String a= img.substring(0, 12);
 			String b=img.substring(14);
 			img = a+b;
