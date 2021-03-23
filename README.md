@@ -1,5 +1,58 @@
 # Team-Project
 
+210323 - 팀 프로젝트 진행상황
+
+팀원 : 민호, 진군, 도현, 시원, 진택
+
+
+팀
+- 소스 통합 및 테스트
+- 프로젝트 개요 작성, 사용 기술 정리
+- 프로젝트 테스트 기록 정리
+- .war파일 추출
+
+> 장바구니 버튼 수정, 매진 버튼 추가, 중복코드 수정, 회원가입 유효성 검사 테스트
+
+> 댓글 코드 수정, 아이디/비번 찾기 css 및 소스 수정, 검색 페이징 소스 수정, 판매번호 정렬
+
+> 상품 게시물 등록 오류 수정, 상품 업데이트 오류 수정
+
+![화면 캡처 2021-03-23 163209](https://user-images.githubusercontent.com/72857217/112127826-2cd9d600-8c09-11eb-8548-0833bad26784.png)
+![화면 캡처 2021-03-23 163226](https://user-images.githubusercontent.com/72857217/112127845-3105f380-8c09-11eb-9034-9daec919ef6d.png)
+![화면 캡처 2021-03-23 163240](https://user-images.githubusercontent.com/72857217/112127854-32cfb700-8c09-11eb-81c2-795a846c9b80.png)
+
+![화면 캡처 2021-03-23 142807](https://user-images.githubusercontent.com/72857217/112127885-39f6c500-8c09-11eb-9cb9-d26624e6df3c.png)
+![화면 캡처 2021-03-23 142822](https://user-images.githubusercontent.com/72857217/112127902-3e22e280-8c09-11eb-8f16-42ccf54f5277.png)
+![화면 캡처 2021-03-23 142912](https://user-images.githubusercontent.com/72857217/112127933-43802d00-8c09-11eb-95ca-f60974b46aae.png)
+![화면 캡처 2021-03-23 143042](https://user-images.githubusercontent.com/72857217/112128087-6c082700-8c09-11eb-8011-d2c938115568.png)
+![화면 캡처 2021-03-23 143440](https://user-images.githubusercontent.com/72857217/112128091-6ca0bd80-8c09-11eb-9c49-882b40bf92e8.png)
+![화면 캡처 2021-03-23 143513](https://user-images.githubusercontent.com/72857217/112128093-6d395400-8c09-11eb-821c-5bbc14b368c7.png)
+![화면 캡처 2021-03-23 143718](https://user-images.githubusercontent.com/72857217/112128095-6d395400-8c09-11eb-8552-77de9da58259.png)
+![화면 캡처 2021-03-23 143737](https://user-images.githubusercontent.com/72857217/112128098-6dd1ea80-8c09-11eb-91a0-c190c3c401d9.png)
+![화면 캡처 2021-03-23 143751](https://user-images.githubusercontent.com/72857217/112128101-6e6a8100-8c09-11eb-82c5-16f9ac1e412d.png)
+![화면 캡처 2021-03-23 143815](https://user-images.githubusercontent.com/72857217/112128103-6f031780-8c09-11eb-9220-8ca3da875081.png)
+![화면 캡처 2021-03-23 144049](https://user-images.githubusercontent.com/72857217/112128105-6f031780-8c09-11eb-8511-9a1121996d07.png)
+![화면 캡처 2021-03-23 144254](https://user-images.githubusercontent.com/72857217/112128106-6f9bae00-8c09-11eb-89ad-983ea606a700.png)
+![화면 캡처 2021-03-23 145728](https://user-images.githubusercontent.com/72857217/112128114-6f9bae00-8c09-11eb-9e86-59adc9e2c69f.png)
+![화면 캡처 2021-03-23 145741](https://user-images.githubusercontent.com/72857217/112128117-70344480-8c09-11eb-89dc-16e08928c06a.png)
+![화면 캡처 2021-03-23 145757](https://user-images.githubusercontent.com/72857217/112128119-70ccdb00-8c09-11eb-9a71-4c8c331840c8.png)
+![화면 캡처 2021-03-23 145918](https://user-images.githubusercontent.com/72857217/112128121-70ccdb00-8c09-11eb-89cd-cdd3bf19e8af.png)
+![화면 캡처 2021-03-23 150045](https://user-images.githubusercontent.com/72857217/112128122-71657180-8c09-11eb-9172-8549ef9347f2.png)
+
+![화면 캡처 2021-03-23 150257](https://user-images.githubusercontent.com/72857217/112128354-b25d8600-8c09-11eb-96b8-2953d5f49f40.png)
+![화면 캡처 2021-03-23 150309](https://user-images.githubusercontent.com/72857217/112128357-b38eb300-8c09-11eb-8d25-565ffff21a0d.png)
+![화면 캡처 2021-03-23 150403](https://user-images.githubusercontent.com/72857217/112128361-b4274980-8c09-11eb-833f-845fe091bc03.png)
+![화면 캡처 2021-03-23 150452](https://user-images.githubusercontent.com/72857217/112128363-b4274980-8c09-11eb-8b1c-4aa03e6fbb0e.png)
+
+
+
+팀 프로젝트 완료.
+
+
+---
+
+
+
 210322 - 팀 프로젝트 진행상황
 
 팀원 : 민호, 진군, 도현, 시원, 진택
