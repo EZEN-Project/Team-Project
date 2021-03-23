@@ -74,7 +74,7 @@
 			<nav aria-label="Page navigation">
   				<ul class="pagination">
     				<li>
-      					<a href="/qaboard/list/${to.curPage <= 1? 1 : to.curPage-1}" aria-label="Previous">
+      					<a href="/qaboard/list/${to.curPage < to.perPage+1? 1:to.curPage-to.perPage}" aria-label="Previous">
         					<span aria-hidden="true">&laquo;</span>
       					</a>
     				</li><!-- "<<" -->
@@ -85,7 +85,7 @@
     					
     				</c:forEach>
     				<li>
-				      <a href="/qaboard/list/${to.curPage < to.totalPage ? to.curPage+1 : to.totalPage }" aria-label="Next">
+				      <a href="/qaboard/list/${to.curPage < to.totalPage-to.perPage? to.curPage+to.perPage : to.totalPage }" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li><!-- ">>" -->

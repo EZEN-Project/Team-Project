@@ -74,9 +74,7 @@ $(document).ready(function() {
 	$("#cancel").click(function() {
 		history.back();
 	});
-});
-			
-			
+});		
 </script>
 
 </body>

@@ -115,6 +115,48 @@
 	            $(".uploadedList").html(str);
 	         });
 		
+		$.getJSON("/sellboard/getAttaches/" + bnum, function(result) {
+			str = '';
+			for (var i = 0; i < result.length; i++) {
+				data = result[i];
+				str += makeHtmlCode_read(data)
+			}
+			$(".uploadedList").html(str);
+		});
+
+		$("#read_btn_update").click(function() {
+			location.assign("/sellboard/update/${vo.bnum}");
+		});
+
+		$("#read_btn_delete").click(function() {
+			$("form").submit();
+		});
+		
+		// 장바구니 상품 입력
+		$("#read_btn_cartInsert").click(function() {
+			var name ='${login.name}';
+			console.log(name);
+ 			if(name == ""){
+				var va = confirm("로그인 하시겠습니까?");
+				if(va){
+					location.assign("/member/login");
+				}
+				return;
+			} 
+			var amount = $("#amount").val();
+			var bcount = ${vo.bcount};
+			if(amount > bcount){
+				alert("최대 구매개수는 판매 개수를 넘을수 없습니다.");
+				$("#amount").val(1);
+				return;
+			}
+			var price = ${vo.price};
+			cartInsert(bnum, amount, price);
+			setTimeout(function() {
+					getCartCount();
+				}, 1000);
+		});
+				
 	         
 	         $("#read_btn_update").click(function() {
 	             location.assign("/sellboard/update/${vo.bnum}");
@@ -129,28 +171,6 @@
 	        	  location.href='/sellboard/list';
 	           });
 	          
-	  		// 장바구니 상품 입력
-	  		$("#read_btn_cartInsert").click(function() {
-	  			var name ='${login.name}';
-	  			console.log(name);
-	  			if(name == ""){
-	  				alert("로그인 화면으로 이동합니다.");
-	  				location.assign("/member/login");
-	  				return;
-	  			}
-	  			var amount = $("#amount").val();
-	  			var bcount = ${vo.bcount};
-	  			if(amount > bcount){
-	  				alert("최대 구매개수는 판매 개수를 넘을수 없습니다.");
-	  				$("#amount").val(1);
-	  				return;
-	  			}
-	  			var price = ${vo.price};
-	  			cartInsert(bnum, amount, price);
-	  			setTimeout(function() {
-	  					getCartCount();
-	  				}, 1000);
-	  		});
 	});
 	
 	

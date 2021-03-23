@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import kr.co.domain.MemberVO;
 import kr.co.domain.SellBoardVO;
 import kr.co.service.SellBoardService;
 import kr.co.util.FileUploadDownloadUtils;
@@ -37,9 +40,14 @@ public class SellBoardController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String insert(HttpSession session) {
-	
+		MemberVO memberVO =(MemberVO) session.getAttribute("login");
+		
+		if (memberVO.getmType() == 1004) {
 			return "/sellboard/insert";
-	
+		}else {
+			return "/member/login";
+		}
+		
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -52,13 +60,16 @@ public class SellBoardController {
 	
 	@RequestMapping(value = "/update/{bnum}", method = RequestMethod.GET)
 	public String update(@PathVariable("bnum") int bnum, Model model,HttpSession session) {
+		MemberVO memberVO =(MemberVO) session.getAttribute("login");
 		
-		
-		
+		if (memberVO.getmType() == 1004) {
 			SellBoardVO vo = sellboardService.updateUI(bnum);
 			model.addAttribute("vo", vo);
 			
 			return "/sellboard/update";
+		}else {
+			return "/member/login";
+		}
 		
 
 	}
@@ -192,7 +203,6 @@ public class SellBoardController {
 	public void uploadForm(MultipartHttpServletRequest request,
 			HttpSession session) throws Exception {
 		
-		request.getParameter("id");
 		MultipartFile file = request.getFile("file");
 		
 		String uploadPath = session.getServletContext().getRealPath(this.uploadPath);

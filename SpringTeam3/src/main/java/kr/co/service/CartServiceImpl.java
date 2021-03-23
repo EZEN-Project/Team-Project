@@ -88,18 +88,20 @@ public class CartServiceImpl implements CartService {
 		} else { // 기존 상품 이면 amounnt, aPrice 증가
 			int amount = cartVO.getAmount();// 추가할 amount
 			cartVO.setCartNo(cartNo);
-			amount = amount + cartVO.getAmount();
+			CartVO oriCartVO=cartDAO.getCart(cartNo);
+			amount = amount + oriCartVO.getAmount();
 			if (amount <= bcount) {
 				cartVO.setAmount(amount);
 				int aPrice = amount * cartVO.getPrice();
 				cartVO.setaPrice(aPrice);
 				success = cartDAO.cartUpdate(cartVO);
+				System.out.println(success);////
 			} else {
 				return "판매상품 수량이 부족합니다";
 			}
 		}
 
-		return success >= 1 ? "장바구니에 상품 "+sellboardVO.getTitle()+" 이 " + cartVO.getAmount() + "개가 되었습니다" : "장바구니에 담기가 실패하였습니다.";
+		return success >= 1 ? "장바구니에 상품 ["+sellboardVO.getTitle()+"] 이(가) [" + cartVO.getAmount() + "]개 가 되었습니다" : "장바구니에 담기가 실패하였습니다.";
 
 	}
 
