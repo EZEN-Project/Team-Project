@@ -146,7 +146,7 @@ $(document).ready(function() {
 				    var ctx = document.getElementById('chart_month');
 					var myChart = new Chart(ctx, {
 					
-						type: 'line',
+						type: 'bar',
 						data: {
 							labels:arr,
 							datasets: [{
@@ -227,7 +227,7 @@ $(document).ready(function() {
 			    var ctx = document.getElementById('chart_year');
 				var myChart = new Chart(ctx, {
 				
-					type: 'line',
+					type: 'bar',
 					data: {
 						labels:arr,
 						datasets: [{

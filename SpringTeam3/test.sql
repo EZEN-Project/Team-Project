@@ -18,7 +18,7 @@ alter table cart add price number;
 -- Test 장바구니 데이터 입력
 insert into cart (cartNo, memberNo, sellboardNo, amount, aPrice, price) values ('1', '1001', '1001', '2', '18000', '9000')
 
-select * from member
+select * from sell
 delete from cart
 
 -- 결제 테이블
@@ -78,6 +78,8 @@ point number(10) DEFAULT 0,
 mtype number(10) DEFAULT 1,
 memo varchar2(100)
 )
+-- 회원정보 name 컬럼 길이 수정(안돼있으면 추가)
+alter table member modify name varchar2(30)
 select * from member
 
 update member set mType= 1004 where id='rmh63'

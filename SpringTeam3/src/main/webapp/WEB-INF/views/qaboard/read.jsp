@@ -47,7 +47,7 @@
          </div>
          <div class="form-group">
             <label for="content">내용</label>
-            <textarea class="form-control" id="content" name="content">${vo.content}</textarea>
+            <textarea class="form-control" id="content" name="content" readonly>${vo.content}</textarea>
          </div>
       </div>
       <c:choose>
@@ -78,7 +78,7 @@
          <div class="collapse" id="myCollapse">
            <div class="form-group">
              <label for="replyer">작성자</label>
-             <input class="form-control" id="replyer" name="replyer" value="${vo.writer}" readonly="readonly">
+             <input class="form-control" id="replyer" name="replyer" value="${login.id}" readonly="readonly">
            </div>
            
            <div class="form-group">

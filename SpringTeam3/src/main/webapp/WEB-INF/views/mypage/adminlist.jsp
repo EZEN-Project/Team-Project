@@ -42,7 +42,6 @@
 		<table class="table table-hover">
 		<thead>
 			<tr>
-				<!-- <th>상품</th> -->
 				<th>날짜</th>
 				<th>판매번호</th>
 				<th>구매자번호</th>
@@ -55,7 +54,7 @@
 		<tbody>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<%-- <td><a href=""><img src="${dto.img}" alt""></a></td> --%>					
+								
 					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.sellDate}"/> </td>
 					<td>${dto.sellNum}</td>
 					<td>${dto.buyNum}</td>

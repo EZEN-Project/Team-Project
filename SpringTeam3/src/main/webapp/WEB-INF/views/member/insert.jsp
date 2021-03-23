@@ -202,7 +202,7 @@
 				var birthYear= birth.substring(0,birth.indexOf("-"));
 				var phone = $("#phone").val();
 				var phoneStart = phone.substring(0,2);
-				var kor = /^[가-힣]{2,4}$/;
+				var kor = /^[가-힣]{2,6}$/;
 				var idEng = /^[a-z|A-z|0-9]{4,12}$/;
 				
 				console.log((!kor.test(namen) || namen.length != $.trim(namen).length));
@@ -253,10 +253,7 @@
 					event.preventDefault();
 					return;
 				}
-				alert("서브밋");// test
-				event.preventDefault();
-				return;
-				
+			
 				
 				
 							

@@ -1,5 +1,6 @@
 package kr.co.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +28,7 @@ public interface MemberService {
 	void sendEmail(MemberVO vo, String div) throws Exception;
 	void tempPw(HttpServletResponse response, MemberVO member)throws Exception;
 	MemberVO readMember(String id);
-	String findid(HttpServletResponse response, String email) throws Exception;
+	List<String> findid(HttpServletResponse response, String email) throws Exception;
 
 	void updatepw(Map<String, Object> map);
 }

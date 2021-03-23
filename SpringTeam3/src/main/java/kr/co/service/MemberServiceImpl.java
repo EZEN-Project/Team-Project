@@ -1,6 +1,7 @@
 package kr.co.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -175,10 +176,10 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public String findid(HttpServletResponse response, String email) throws Exception {
+	public List<String> findid(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		String id = memberDAO.findid(email);
+		List<String> id = memberDAO.findid(email);
 		
 		if (id == null) {
 			out.println("<script>");

@@ -38,14 +38,18 @@ public class sQABoardController {
 				amount = 0;
 			}
 			spt.setAmount(amount);
+			if (curPage > spt.getTotalPage()) {
+				return "redirect:/sqaboard/list/"+searchType+"/"+keyword+"/"+1;
+			}else {
+				List<QnABoardVO> list = sService.list(spt);
+				spt.setList(list);
+				
+				model.addAttribute("spt", spt);
+				
+				
+				return "sqaboard/list";
+			}
 			
-			List<QnABoardVO> list = sService.list(spt);
-			spt.setList(list);
-			
-			model.addAttribute("spt", spt);
-			
-			
-			return "sqaboard/list";
 		}
 		
 		

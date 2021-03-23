@@ -88,7 +88,7 @@
 			<nav aria-label="Page navigation">
   				<ul class="pagination">
     				<li>
-      					<a href="/sqaboard/list/${spt.searchType}/${spt.keyword}/${spt.curPage <= 1? 1 : spt.curPage-1}" aria-label="Previous">
+      					<a href="/sqaboard/list/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.perPage+1? 1:spt.curPage-spt.perPage}" aria-label="Previous">
         					<span aria-hidden="true">&laquo;</span>
       					</a>
     				</li><!-- "<<" -->
@@ -99,7 +99,7 @@
     					
     				</c:forEach>
     				<li>
-				      <a href="/sqaboard/list/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.totalPage ? spt.curPage+1 : spt.totalPage }" aria-label="Next">
+				      <a href="/sqaboard/list/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.totalPage-spt.perPage? spt.curPage+spt.perPage : spt.totalPage }" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li><!-- ">>" -->
