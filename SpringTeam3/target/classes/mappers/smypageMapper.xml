@@ -5,17 +5,17 @@
 <mapper namespace="kr.co.smypage">
 	<sql id="search1">
 		<if test="searchType == 'buynum'.toString() ">
-			WHERE LOWER(buynum) LIKE '%'||LOWER(#{keyword})||'%'
+			WHERE LOWER(buyNum) LIKE '%'||LOWER(#{keyword})||'%'
 		</if>							
 	</sql>
 	<sql id="search2">
 		<if test="searchType == 'selldate'.toString() ">
-			WHERE to_char(selldate,'yyyy-mm-dd') LIKE '%'||LOWER(#{keyword})||'%'
+			WHERE to_char(sellDate,'yyyy-mm-dd') LIKE '%'||LOWER(#{keyword})||'%'
 		</if>
 	</sql>
 	<sql id="search3">
 		<if test="searchType == 'sellnum'.toString() ">
-			WHERE LOWER(sellnum) LIKE '%'||LOWER(#{keyword})||'%'
+			WHERE LOWER(sellNum) LIKE '%'||LOWER(#{keyword})||'%'
 		</if>
 	</sql>
 

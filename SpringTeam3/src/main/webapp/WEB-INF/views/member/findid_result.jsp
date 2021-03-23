@@ -25,10 +25,10 @@
   padding:0;
   display:inline; 
   border-radius: 4px; 
-  background: #212529;
+
   color: #fff;
   margin-top: 20px;
-  border: solid 2px #212529; 
+
   transition: all 0.5s ease-in-out 0s;
 }
 .mybtn:hover .mybtn:focus {
@@ -49,8 +49,8 @@
 					${ id }
 				</h5>
 				<p class="w3-center">
-					<a href="/member/login"><button type="button" id=loginBtn class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">Login</button></a>
-					<button type="button" onclick="history.go(-1);" class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round">Cancel</button>
+					<a href="/member/login"><button type="button" id=loginBtn class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-round btn-primary">Login</button></a>
+					<button type="button" onclick="history.go(-1);" class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round btn-primary">Cancel</button>
 				</p>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 package kr.co.repository;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -82,8 +83,8 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.update(NS+".tempPw", vo);
 	}
 	@Override
-	public String findid(String email) throws Exception{
-		return sqlSession.selectOne(NS+".findid", email);
+	public List<String> findid(String email) throws Exception{
+		return sqlSession.selectList(NS+".findid", email);
 	}
 
 	@Override

@@ -97,24 +97,29 @@ public class MyPageController {
 				}
 				
 				PageTO<SellVO> to = new PageTO<SellVO>(curPage);
-				if (curPage > to.getTotalPage()) {
-					return "redirect:/mypage/adminlist/"+1;
-				}else {
+			
+				
 					int amount = service.getAmount();
 					to.setAmount(amount);
 					
+					if (curPage > to.getTotalPage()) {
+						
+						return "redirect:/mypage/adminlist/"+1;
+					}
+					else {
+						List<SellVO> list = service.adminlist(curPage);
+						model.addAttribute("list", list);
+						
+						
+						to.setList(list);
+						model.addAttribute("to", to);
+						
+						
+						
+						return "mypage/adminlist";
+					}
 					
-					List<SellVO> list = service.adminlist(curPage);
-					model.addAttribute("list", list);
-					
-					
-					to.setList(list);
-					model.addAttribute("to", to);
-					
-					
-					
-					return "mypage/adminlist";
-				}
+				
 				
 			}else {
 				return "mypage/mypage";

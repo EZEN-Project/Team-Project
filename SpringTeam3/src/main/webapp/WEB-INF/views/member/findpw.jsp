@@ -21,10 +21,10 @@
   padding:0;
   display:inline; 
   border-radius: 4px; 
-  background: #212529;
+
   color: #fff;
   margin-top: 20px;
-  border: solid 2px #212529; 
+
   transition: all 0.5s ease-in-out 0s;
 }
 .mybtn:hover .mybtn:focus {
@@ -50,8 +50,8 @@
 					<input class="w3-input" type="text" id="email" name="email" placeholder="회원가입한 이메일주소를 입력하세요" required>
 				</p>
 				<p class="w3-center">
-					<button type="button" id="findBtn" class="w3-button w3-hover-white w3-ripple w3-margin-top w3-round mybtn">찾기</button>
-					<button type="button" onclick="history.go(-1);" class="w3-button w3-hover-white w3-ripple w3-margin-top w3-round mybtn">로그인으로</button>
+					<button type="button" id="findBtn" class="btn-primary btn w3-button w3-hover-white w3-ripple w3-margin-top w3-round mybtn">찾기</button>
+					<button type="button" onclick="history.go(-1);" class="btn-primary btn w3-button w3-hover-white w3-ripple w3-margin-top w3-round mybtn">로그인으로</button>
 				</p>
 			</div>
 		</div>

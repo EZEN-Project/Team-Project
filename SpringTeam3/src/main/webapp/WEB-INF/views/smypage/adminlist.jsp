@@ -55,9 +55,9 @@
 				<tr>
 
 					
-					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.selldate}"/> </td>
-					<td>${dto.sellnum}</td>
-					<td>${dto.buynum}</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${dto.sellDate}"/> </td>
+					<td>${dto.sellNum}</td>
+					<td>${dto.buyNum}</td>
 					<td>${dto.amount}개</td>
 					<td>${dto.aPrice}원</td>
 				</tr>
@@ -73,7 +73,7 @@
 			<nav aria-label="Page navigation">
   				<ul class="pagination">
     				<li>
-      					<a href="/smypage/adminlist/${spt.searchType}/${spt.keyword}/${spt.curPage <= 1? 1 : spt.curPage-1}" aria-label="Previous">
+      					<a href="/smypage/adminlist/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.perPage+1? 1:spt.curPage-spt.perPage}" aria-label="Previous">
         					<span aria-hidden="true">&laquo;</span>
       					</a>
     				</li><!-- "<<" -->
@@ -84,7 +84,7 @@
     					
     				</c:forEach>
     				<li>
-				      <a href="/smypage/adminlist/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.totalPage ? spt.curPage+1 : spt.totalPage }" aria-label="Next">
+				      <a href="/smypage/adminlist/${spt.searchType}/${spt.keyword}/${spt.curPage < spt.totalPage-to.perPage? spt.curPage+to.perPage : spt.totalPage }" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li><!-- ">>" -->

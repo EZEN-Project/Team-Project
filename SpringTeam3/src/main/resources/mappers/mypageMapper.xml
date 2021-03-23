@@ -12,7 +12,7 @@
 		groupnum = -1 where	sellnum = #{sellnum}
 	</update>
 	<select id="adminlist" resultType="kr.co.domain.SellVO">
-		SELECT * FROM sell ORDER BY selldate DESC
+		SELECT * FROM sell ORDER BY sellnum DESC
 	</select>
 	
 	<select id="getAmount" resultType="Integer">

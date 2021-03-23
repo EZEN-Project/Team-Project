@@ -33,19 +33,25 @@ public class sMyPageController {
 				Model model) {
 			
 			SearchPageTO<SellVO> spt = new SearchPageTO<SellVO>(searchType, keyword, curPage);
+		
 			Integer amount = sService.getAmount(spt);
 			if(amount == null) {
 				amount = 0;
 			}
 			spt.setAmount(amount);
+			if (curPage > spt.getTotalPage()) {
+				
+				return "redirect:/smypage/adminlist/"+searchType+"/"+keyword+"/"+1;
+			}else {
+				List<SellVO> list = sService.adminlist(spt);
+				spt.setList(list);
+				
+				model.addAttribute("spt", spt);
+				
+				
+				return "smypage/adminlist";
+			}
 			
-			List<SellVO> list = sService.adminlist(spt);
-			spt.setList(list);
-			
-			model.addAttribute("spt", spt);
-			
-			
-			return "smypage/adminlist";
 		}
 		
 		

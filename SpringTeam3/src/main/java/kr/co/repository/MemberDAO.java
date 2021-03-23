@@ -1,5 +1,6 @@
 package kr.co.repository;
 
+import java.util.List;
 import java.util.Map;
 
 import kr.co.domain.LoginDTO;
@@ -23,7 +24,7 @@ public interface MemberDAO {
 	MemberVO readMember(String id);
 
 	int tempPw(MemberVO vo);
-	String findid(String email) throws Exception;
+	List<String> findid(String email) throws Exception;
 
 	void updatepw(Map<String, Object> map);
 	

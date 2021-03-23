@@ -25,10 +25,10 @@
   padding:0;
   display:inline; 
   border-radius: 4px; 
-  background: #212529;
+
   color: #fff;
   margin-top: 20px;
-  border: solid 2px #212529; 
+ 
   transition: all 0.5s ease-in-out 0s;
 }
 .mybtn:hover .mybtn:focus {
@@ -51,8 +51,8 @@
 						<input class="w3-input" type="text" id="email" name="email" required>
 					</p>
 					<p class="w3-center">
-						<button type="submit" id=findBtn class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round mybtn">find</button>
-						<button type="button" onclick="history.go(-1);" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round mybtn">Cancel</button>
+						<button type="submit" id=findBtn class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round mybtn btn-primary">find</button>
+						<button type="button" onclick="history.go(-1);" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round mybtn btn-primary">Cancel</button>
 					</p>
 				</div>
 			</form>
