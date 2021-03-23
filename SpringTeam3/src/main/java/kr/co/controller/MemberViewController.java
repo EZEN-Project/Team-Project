@@ -31,6 +31,7 @@ public class MemberViewController {
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
 	public String findIdGET(HttpServletResponse response, @RequestParam
 			("email") String email, Model md) throws Exception{
+		
 		md.addAttribute("id", memberService.findid(response, email));
 		return "/member/findid_result";
 				

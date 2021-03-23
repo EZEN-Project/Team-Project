@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기 결과</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,10 +44,19 @@
 			<div class="w3-center w3-large w3-margin-top">
 				<h3>아이디 찾기 검색결과</h3>
 			</div>
+			
 			<div>
+			<c:choose>
+			<c:when test="${empty id}">
+				<h5>일치하는 아이디가 없습니다</h5>
+			</c:when>
+			<c:otherwise>
 				<h5>
-					${ id }
+				${id}
+					
 				</h5>
+			</c:otherwise>
+			</c:choose>
 				<p class="w3-center">
 					<a href="/member/login"><button type="button" id=loginBtn class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-round btn-primary">Login</button></a>
 					<button type="button" onclick="history.go(-1);" class="mybtn w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round btn-primary">Cancel</button>
@@ -55,5 +64,7 @@
 			</div>
 		</div>
 	</div>
+
 </body>
+
 </html>
