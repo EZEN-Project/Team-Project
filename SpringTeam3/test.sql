@@ -41,9 +41,9 @@ select * from sell
 -- 상품 게시글 
 create table sellboard(
 bnum number(6) primary key,
-title varchar2(300) not null,
-writer varchar2(300) not null,
-content varchar2(300) not null,
+title varchar2(300),
+writer varchar2(300),
+content varchar2(300),
 cost number(10) DEFAULT 0,
 price number(10) DEFAULT 0,
 veiwcnt number(6) default 0,

@@ -98,7 +98,7 @@
      		
 				
 				         <div class="form-group">
-				            <button class="btn btn-warning" id="update_btn_update">수정완료</button>
+				            <button class="btn btn-warning" id="update_btn_update" type="submit">수정완료</button>
 				            <button id="update_btn_back" class="btn btn-default">되돌아가기</button>
 				         </div>
 	</div>
@@ -108,6 +108,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+
 		
         $(".fileDrop").on("dragenter dragover", function(event) {
             event.preventDefault();
@@ -139,7 +140,64 @@
          });
 		
 		 $("#update_btn_update").click(function() {
-		             
+			 var title = $("input[name=title]").val();
+				var cost = $("input[name=cost]").val();
+				var price = $("input[name=price]").val();
+				var bcount = $("input[name=bcount]").val();
+				var content = $("textarea[name=content]").val();
+				
+				
+				if(!title){ 
+					alert("제목을 작성해주세요.");
+					$("#title").focus();
+					$("#title").select();
+					event.preventDefault();
+					return;
+				} else if (!cost) {
+					alert("원가를 입력해주세요.");
+					$("#cost").focus();
+					$("#cost").select();
+					event.preventDefault();
+					return;
+				} else if (cost > 100000000) {
+					alert("원가는 1억이상으로 설정할 수 없습니다.");
+					$("#cost").focus();
+					$("#cost").select();
+					event.preventDefault();
+					return;
+				} else if (!price) {
+					$("#price").focus();
+					$("#price").select(); 
+					alert("판매가격을 입력해주세요.");
+					event.preventDefault();
+					return;
+				}else if (price > 100000000) {
+						alert("판매가격은 1억이상으로 설정할 수 없습니다.");
+						$("#price").focus();
+						$("#price").select();
+						event.preventDefault();
+						return;
+				} else if (!bcount) {
+					alert("상품수량을 입력해주세요.");
+					$("#bcount").focus();
+					$("#bcount").select();
+					event.preventDefault();
+					return;
+				} else if (bcount > 100000000) {
+					alert("수량은 1억이상으로 설정할 수 없습니다.");
+					$("#bcount").focus();
+					$("#bcount").select();
+					event.preventDefault();
+					return;
+				} else if(!content){
+					alert("상세설명을 입력해주세요.");
+					$("#content").focus();
+					$("#content").select();
+					event.preventDefault();
+					return;
+				}				        
+			 	 
+			 
 		             var str = "";
 		             $(".delbtn").each(function(index) {
 		                var data = $(this).attr("data-src");
