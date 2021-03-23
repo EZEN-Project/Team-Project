@@ -44,8 +44,8 @@
 <body>
     <div class="container-fluid">
         <jsp:include page="/WEB-INF/views/header/loginHeader.jsp"></jsp:include>
-       	
     </div>
+    
 	<div class="container">
 		
 			<div class="form-group">
@@ -55,68 +55,56 @@
 			<div class="row">
 				<p id="title"> ${vo.title } </p>
 				<p id="content"> ${vo.content } </p>
-				<p id="price">$${vo.price } </p>
+				<p id="price">가격 : ${vo.price } </p>
 			</div>
-			
-			<!-- 구매개수 입력 -->
+		
+	<c:if test="${vo.bcount >=1}">	
+		<!-- 구매개수 입력 -->
 		<div align="right" class="row">
 			<input class="input-group" maxlength=1 type="number" id="amount" min="1" max="99" value="1">
 		</div>
 		<!-- 장바구니 담기 버튼 -->
 		<div align="right" class="row">
-			<button id="read_btn_cartInsert" class="btn btn-info">장바구니 담기</button>
+			<button id="read_btn_cartInsert" class="btn btn-info">장바구니 담기(${vo.bcount})</button>
 		</div>
-		
+	</c:if>
+	<c:if test="${vo.bcount <=0}">
+		<!-- 매진 -->
+		<div align="right" class="row">
+			<a href="/sellboard/list"><button class="btn btn-warning btn-lg">매진</button></a>
+		</div>
+	</c:if>
 		
 		<hr>
 		
-			
-	<div class="row"> <!-- 관리자만 보이는 버튼 -->
-		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/insert">
+	<!-- 관리자만 보이는 버튼 -->
+	<div class="row"> 
+		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/update/${vo.bnum}">
 			<button id="read_btn_update" class="btn btn-warning">수정</button>
 		</a>
-		<a class="${login.mType == 1004 ? '' :'hidden' }" target="_blank" href="/sellboard/update">
+		<a class="${login.mType == 1004 ? '' :'hidden' }">
 			<button id="read_btn_delete" class="btn btn-danger">삭제</button>
 		</a>
-	</div><!--class=row  --><p>
+	</div><!--class=row  -->
 	
-	
+	<!-- 목록버튼 -->
+		<div class="row">
+			<button id="read_btn_list" class="btn btn-info">목록</button>
+		</div>
 		
-			<div class="row">
-				<button id="read_btn_list" class="btn btn-info">목록</button>
-			</div>
-
-			
-		      
-		
-		
-		
-		
-		   <form action="/sellboard/delete" method="post">
-		      <input type="hidden" name="bnum" value="${vo.bnum}">      
-		   </form>
+	<!-- 숨겨진 form 삭제용 -->
+	   <form action="/sellboard/delete" method="post">
+	      <input type="hidden" name="bnum" value="${vo.bnum}">      
+	   </form>
 	</div>		   
    
 <script type="text/javascript">	
-		$(document).ready(function() {
-	         
-			var bnum = ${vo.bnum};
-	         
-	         $.getJSON("/sellboard/getAttaches/"+bnum, function(result) {
-	        	 
-	        	 str = '';
-	        	 
-	            for (var i = 0; i < result.length; i++) {
-					data = result[i];
-					str += makeHtmlCode_read(data)
-					
-				}
-	            
-	            $(".uploadedList").html(str);
-	         });
-		
+	
+	$(document).ready(function() {
+
+		var bnum = ${vo.bnum}		;
 		$.getJSON("/sellboard/getAttaches/" + bnum, function(result) {
-			str = '';
+			var str = '';
 			for (var i = 0; i < result.length; i++) {
 				data = result[i];
 				str += makeHtmlCode_read(data)
@@ -124,28 +112,20 @@
 			$(".uploadedList").html(str);
 		});
 
-		$("#read_btn_update").click(function() {
-			location.assign("/sellboard/update/${vo.bnum}");
-		});
-
-		$("#read_btn_delete").click(function() {
-			$("form").submit();
-		});
-		
 		// 장바구니 상품 입력
 		$("#read_btn_cartInsert").click(function() {
-			var name ='${login.name}';
+			var name = '${login.name}';
 			console.log(name);
- 			if(name == ""){
+			if (name == "") {
 				var va = confirm("로그인 하시겠습니까?");
-				if(va){
+				if (va) {
 					location.assign("/member/login");
 				}
 				return;
-			} 
+			}
 			var amount = $("#amount").val();
 			var bcount = ${vo.bcount};
-			if(amount > bcount){
+			if (amount > bcount) {
 				alert("최대 구매개수는 판매 개수를 넘을수 없습니다.");
 				$("#amount").val(1);
 				return;
@@ -153,28 +133,21 @@
 			var price = ${vo.price};
 			cartInsert(bnum, amount, price);
 			setTimeout(function() {
-					getCartCount();
-				}, 1000);
+				getCartCount();
+			}, 1000);
 		});
-				
-	         
-	         $("#read_btn_update").click(function() {
-	             location.assign("/sellboard/update/${vo.bnum}");
-	          });
-	          
-	          
-	          $("#read_btn_delete").click(function() {
-	              $("form").submit();
-	           });
-	          
-	          $("#read_btn_list").click(function() {
-	        	  location.href='/sellboard/list';
-	           });
-	          
-	});
-	
-	
 
+		// 상품 게시글 삭제
+		$("#read_btn_delete").click(function() {
+			$("form").submit();
+		});
+
+		// 상품 게시글 목록으로
+		$("#read_btn_list").click(function() {
+			location.href = '/sellboard/list';
+		});
+
+	});
 </script>
 </body>
 </html>

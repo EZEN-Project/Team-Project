@@ -58,7 +58,7 @@
 
     <hr>
 
-		<div class="row">
+		<div align="center" class="row">
 			<h1 class="jumbotron">판매상품</h1>                
 		</div>
 		
