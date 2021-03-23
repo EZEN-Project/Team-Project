@@ -195,6 +195,21 @@
 					$("#content").select();
 					event.preventDefault();
 					return;
+				} else if(isNaN(bcount)){// 문자 입력 체크
+					alert("판매개수는 숫자만 입력할 수 있습니다.");
+					$("#bcount").select();
+					event.preventDefault();
+					return;			
+				} else if(isNaN(cost)){// 문자 입력 체크
+					alert("원가는 숫자만 입력할 수 있습니다.");
+					$("#cost").select();
+					event.preventDefault();
+					return;			
+				} else if(isNaN(price)){// 문자 입력 체크
+					alert("판매가격은 숫자만 입력할 수 있습니다.");
+					$("#price").select();
+					event.preventDefault();
+					return;			
 				}				        
 			 	 
 			 
