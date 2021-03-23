@@ -54,6 +54,9 @@
 			<mapping path="/cart/insert"/>
 			<mapping path="/cart/list"/>
 			<mapping path="/mypage/**"/>
+			<mapping path="/sellboard/insert"/>
+			<mapping path="/sellboard/update"/>
+			<mapping path="/sellboard/delete"/>
 			<beans:ref bean="authinterceptor"/>
 		</interceptor>
 		

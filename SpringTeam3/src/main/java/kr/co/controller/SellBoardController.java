@@ -40,14 +40,9 @@ public class SellBoardController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String insert(HttpSession session) {
-		MemberVO memberVO =(MemberVO) session.getAttribute("login");
-		
-		if (memberVO.getmType() == 1004) {
+
 			return "/sellboard/insert";
-		}else {
-			return "/member/login";
-		}
-		
+	
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -60,17 +55,11 @@ public class SellBoardController {
 	
 	@RequestMapping(value = "/update/{bnum}", method = RequestMethod.GET)
 	public String update(@PathVariable("bnum") int bnum, Model model,HttpSession session) {
-		MemberVO memberVO =(MemberVO) session.getAttribute("login");
 		
-		if (memberVO.getmType() == 1004) {
 			SellBoardVO vo = sellboardService.updateUI(bnum);
 			model.addAttribute("vo", vo);
 			
 			return "/sellboard/update";
-		}else {
-			return "/member/login";
-		}
-		
 
 	}
 	

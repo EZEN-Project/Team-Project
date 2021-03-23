@@ -77,7 +77,7 @@
 						<div>
 							<ul>
 								<li class="iimmgg"><a href="/sellboard/read/${dto.bnum}"><img alt="/resources/esc.png" src="/resources/upload/${dto.content }"></a><br>
-								<a id="atag1" href="/sellboard/read/${dto.bnum}">${dto.title}<br>$${dto.price}</a></li>
+								<a id="atag1" href="/sellboard/read/${dto.bnum}">${dto.title}<br>${dto.price}원</a></li>
 								
 	 						</ul>	
 	 					</div>
